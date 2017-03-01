@@ -49,7 +49,7 @@
 #define MAIN
 #include "copyright.h"
 #undef MAIN
-
+//宏使用习惯
 #include "utility.h"
 #include "system.h"
 
@@ -63,7 +63,7 @@ extern void ThreadTest(void), Copy(char *unixFile, char *nachosFile);
 extern void Print(char *file), PerformanceTest(void);
 extern void StartProcess(char *file), ConsoleTest(char *in, char *out);
 extern void MailTest(int networkID);
-
+extern void SimpleThread(int which);
 //----------------------------------------------------------------------
 // main
 // 	Bootstrap the operating system kernel.  
@@ -100,10 +100,10 @@ main(int argc, char **argv)
         break;
       }
     }
-
-    ThreadTest();
+    SimpleThread(0);
+    // ThreadTest();
 #endif
-
+//command lines parse of THREADS
     for (argc--, argv++; argc > 0; argc -= argCount, argv += argCount) {
 	argCount = 1;
         if (!strcmp(*argv, "-z"))               // print copyright
@@ -158,7 +158,7 @@ main(int argc, char **argv)
         }
 #endif // NETWORK
     }
-
+    // ThreadTest1();
     currentThread->Finish();	// NOTE: if the procedure "main" 
 				// returns, then the program "nachos"
 				// will exit (as any other normal program

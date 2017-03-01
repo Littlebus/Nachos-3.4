@@ -31,7 +31,7 @@
 //
 //	"threadName" is an arbitrary string, useful for debugging.
 //----------------------------------------------------------------------
-
+//构造函数，
 Thread::Thread(char* threadName)
 {
     name = threadName;

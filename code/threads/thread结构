@@ -1,0 +1,35 @@
+thread结构
+private:
+int* stackTop;当前栈顶
+int machineState[MachineStateSize];栈指针外的寄存器
+
+int* stack;栈底
+ThreadStatus status;线程三种状态：ready,running,blocked
+char* name;线程名
+void StackAllocate(VoidFunctionPtr func, int arg);分配栈空间
+
+public:
+Thread(char* threadName);构造函数
+	分配栈空间
+	初始化指针
+	设置中断状态为off
+	通过scheduler（调度类）将自己加入队列
+	设置中断
+void Thread::Fork(VoidFunctionPtr func, int arg)
+	分配栈，执行函数指针，并且并发执行调用者和被调用者（linux fork模式）
+	初始化栈
+	加入ready队列
+	虽然定义上是一个整数参数，但是也可以通过结构体传入一个指针
+Thread::CheckOverflow()
+	检查栈是否溢出，Nachos不会catch溢出情况。因此程序可能持续溢出。如果程序结果错误可以检查一下（不要把打数据结构放在栈上比如 void foo() { int bigArray[10000]; ... }）
+Thread::Finish()
+	根线程调用，并不会马上回收现成的数据结构和执行栈，而是设置threadToBeDestroyed，在Scheduler::Run()会调用回收。
+Thread::Yield()
+	放弃CPU时间，排到Ready列表末，如果没有别的ready会马上执行
+Thread::Sleep()
+	放弃CPU时间（因为当前线程blocked，等待同步变量)最终等待别的线程唤醒。如果等待队列上没有别的线程，就调用Interrupt::Idle,意味着闲置CPU直到下个I/O中断（唯一有可能唤醒线程）
+	过程中默认关中断
+Thread::StackAllocate (VoidFunctionPtr func, int arg)
+	分配栈空间
+Thread::SaveUserState
+	保存寄存器

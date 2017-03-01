@@ -3,11 +3,13 @@
 //
 //	Create two threads, and have them context switch
 //	back and forth between themselves by calling Thread::Yield, 
-//	to illustratethe inner workings of the thread system.
+//	to illustrate the inner workings of the thread system.
 //
 // Copyright (c) 1992-1993 The Regents of the University of California.
 // All rights reserved.  See copyright.h for copyright notice and limitation 
 // of liability and disclaimer of warranty provisions.
+
+//测试文件，创建两个线程并且不断yield切换
 
 #include "copyright.h"
 #include "system.h"
@@ -24,6 +26,8 @@ int testnum = 1;
 //	purposes.
 //----------------------------------------------------------------------
 
+
+//SimpleThread函数简单地yield出五次，并且打印信息
 void
 SimpleThread(int which)
 {
@@ -40,6 +44,7 @@ SimpleThread(int which)
 // 	Set up a ping-pong between two threads, by forking a thread 
 //	to call SimpleThread, and then calling SimpleThread ourselves.
 //----------------------------------------------------------------------
+
 
 void
 ThreadTest1()
