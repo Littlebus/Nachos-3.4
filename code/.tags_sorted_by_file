@@ -1,0 +1,1229 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+LPR	Makefile	/^LPR = lpr$/;"	m
+MAKE	Makefile	/^MAKE = make$/;"	m
+CC	bin/Makefile	/^CC=gcc$/;"	m
+CFLAGS	bin/Makefile	/^CFLAGS=-I.\/ -I..\/threads -g$/;"	m
+LD	bin/Makefile	/^LD=gcc$/;"	m
+AOUTHDR	bin/coff.h	/^      } AOUTHDR;$/;"	t	typeref:struct:aouthdr
+AOUTHSZ	bin/coff.h	/^#define AOUTHSZ /;"	d
+MIPSELMAGIC	bin/coff.h	/^#define  MIPSELMAGIC /;"	d
+OMAGIC	bin/coff.h	/^#define OMAGIC /;"	d
+SOMAGIC	bin/coff.h	/^#define SOMAGIC /;"	d
+aouthdr	bin/coff.h	/^typedef struct aouthdr {$/;"	s
+bsize	bin/coff.h	/^        long    bsize;          \/* uninitialized data "   "             *\/$/;"	m	struct:aouthdr
+bss_start	bin/coff.h	/^        long    bss_start;      \/* base of bss used for this file       *\/$/;"	m	struct:aouthdr
+cprmask	bin/coff.h	/^        long    cprmask[4];     \/* co-processor register masks          *\/$/;"	m	struct:aouthdr
+data_start	bin/coff.h	/^        long    data_start;     \/* base of data used for this file      *\/$/;"	m	struct:aouthdr
+dsize	bin/coff.h	/^        long    dsize;          \/* initialized data "  "                *\/$/;"	m	struct:aouthdr
+entry	bin/coff.h	/^        long    entry;          \/* entry pt.                            *\/$/;"	m	struct:aouthdr
+f_flags	bin/coff.h	/^        unsigned short  f_flags;        \/* flags *\/$/;"	m	struct:filehdr
+f_magic	bin/coff.h	/^        unsigned short  f_magic;        \/* magic number *\/$/;"	m	struct:filehdr
+f_nscns	bin/coff.h	/^        unsigned short  f_nscns;        \/* number of sections *\/$/;"	m	struct:filehdr
+f_nsyms	bin/coff.h	/^        long            f_nsyms;        \/* sizeof(symbolic hdr) *\/$/;"	m	struct:filehdr
+f_opthdr	bin/coff.h	/^        unsigned short  f_opthdr;       \/* sizeof(optional hdr) *\/$/;"	m	struct:filehdr
+f_symptr	bin/coff.h	/^        long            f_symptr;       \/* file pointer to symbolic header *\/$/;"	m	struct:filehdr
+f_timdat	bin/coff.h	/^        long            f_timdat;       \/* time & date stamp *\/$/;"	m	struct:filehdr
+filehdr	bin/coff.h	/^struct filehdr {$/;"	s
+gp_value	bin/coff.h	/^        long    gp_value;       \/* the gp value used for this object    *\/$/;"	m	struct:aouthdr
+gprmask	bin/coff.h	/^        long    gprmask;        \/* general purpose register mask        *\/$/;"	m	struct:aouthdr
+magic	bin/coff.h	/^        short   magic;          \/* see above                            *\/$/;"	m	struct:aouthdr
+s_flags	bin/coff.h	/^        long            s_flags;        \/* flags *\/$/;"	m	struct:scnhdr
+s_lnnoptr	bin/coff.h	/^        long            s_lnnoptr;      \/* file ptr to gp histogram *\/$/;"	m	struct:scnhdr
+s_name	bin/coff.h	/^        char            s_name[8];      \/* section name *\/$/;"	m	struct:scnhdr
+s_nlnno	bin/coff.h	/^        unsigned short  s_nlnno;        \/* number of gp histogram entries *\/$/;"	m	struct:scnhdr
+s_nreloc	bin/coff.h	/^        unsigned short  s_nreloc;       \/* number of relocation entries *\/$/;"	m	struct:scnhdr
+s_paddr	bin/coff.h	/^        long            s_paddr;        \/* physical address, aliased s_nlib *\/$/;"	m	struct:scnhdr
+s_relptr	bin/coff.h	/^        long            s_relptr;       \/* file ptr to relocation *\/$/;"	m	struct:scnhdr
+s_scnptr	bin/coff.h	/^        long            s_scnptr;       \/* file ptr to raw data for section *\/$/;"	m	struct:scnhdr
+s_size	bin/coff.h	/^        long            s_size;         \/* section size *\/$/;"	m	struct:scnhdr
+s_vaddr	bin/coff.h	/^        long            s_vaddr;        \/* virtual address *\/$/;"	m	struct:scnhdr
+scnhdr	bin/coff.h	/^struct scnhdr {$/;"	s
+text_start	bin/coff.h	/^        long    text_start;     \/* base of text used for this file      *\/$/;"	m	struct:aouthdr
+tsize	bin/coff.h	/^        long    tsize;          \/* text size in bytes, padded to DW bdry*\/$/;"	m	struct:aouthdr
+vstamp	bin/coff.h	/^        short   vstamp;         \/* version stamp                        *\/$/;"	m	struct:aouthdr
+MAIN	bin/coff2flat.c	/^#define MAIN$/;"	d	file:
+MAIN	bin/coff2flat.c	/^#undef MAIN$/;"	d	file:
+Read	bin/coff2flat.c	/^void Read(int fd, char *buf, int nBytes)$/;"	f
+ReadStruct	bin/coff2flat.c	/^#define ReadStruct(/;"	d	file:
+StackSize	bin/coff2flat.c	/^#define StackSize /;"	d	file:
+Write	bin/coff2flat.c	/^void Write(int fd, char *buf, int nBytes)$/;"	f
+main	bin/coff2flat.c	/^main (int argc, char **argv)$/;"	f
+MAIN	bin/coff2noff.c	/^#define MAIN$/;"	d	file:
+MAIN	bin/coff2noff.c	/^#undef MAIN$/;"	d	file:
+Read	bin/coff2noff.c	/^void Read(int fd, char *buf, int nBytes)$/;"	f
+ReadStruct	bin/coff2noff.c	/^#define ReadStruct(/;"	d	file:
+ShortToHost	bin/coff2noff.c	/^ShortToHost(unsigned short shortword) {$/;"	f
+WordToHost	bin/coff2noff.c	/^WordToHost(unsigned int word) {$/;"	f
+Write	bin/coff2noff.c	/^void Write(int fd, char *buf, int nBytes)$/;"	f
+main	bin/coff2noff.c	/^main (int argc, char **argv)$/;"	f
+noffFileName	bin/coff2noff.c	/^char *noffFileName = NULL;$/;"	v
+NULL	bin/d.c	/^#define NULL	/;"	d	file:
+R	bin/d.c	/^#define R(/;"	d	file:
+dump_ascii	bin/d.c	/^dump_ascii(instruction, pc)$/;"	f
+longdis	bin/d.c	/^int longdis = 1;$/;"	v
+regstrings	bin/d.c	/^char *regstrings[] =$/;"	v
+sptr	bin/d.c	/^int sptr;$/;"	v
+ASSOC	bin/disasm.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+LINESIZE	bin/disasm.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+LOADSECTION	bin/disasm.c	/^#define LOADSECTION(/;"	d	file:
+LRD	bin/disasm.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+NROWS	bin/disasm.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+RAND	bin/disasm.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+Regtrace	bin/disasm.c	/^int TRACE, Traptrace, Regtrace;$/;"	v
+TRACE	bin/disasm.c	/^int TRACE, Traptrace, Regtrace;$/;"	v
+Traptrace	bin/disasm.c	/^int TRACE, Traptrace, Regtrace;$/;"	v
+bsshead	bin/disasm.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+datahead	bin/disasm.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+dis1	bin/disasm.c	/^dis1(xpc)$/;"	f
+disasm	bin/disasm.c	/^disasm(startpc, argc, argv)$/;"	f
+filename	bin/disasm.c	/^static char filename[1000] = "a.out";	\/* default a.out file *\/$/;"	v	file:
+fp	bin/disasm.c	/^static FILE *fp;$/;"	v	file:
+ldptr	bin/disasm.c	/^static LDFILE *ldptr;$/;"	v	file:
+load_program	bin/disasm.c	/^load_program(filename)$/;"	f
+load_section	bin/disasm.c	/^load_section(hd)$/;"	f
+m_alloc	bin/disasm.c	/^int *m_alloc(n)$/;"	f
+main	bin/disasm.c	/^main(argc, argv)$/;"	f
+mem	bin/disasm.c	/^char mem[MEMSIZE];		\/* main memory. use malloc later *\/$/;"	v
+pc	bin/disasm.c	/^int pc;$/;"	v
+rdatahead	bin/disasm.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+sbsshead	bin/disasm.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+sdatahead	bin/disasm.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+self	bin/disasm.c	/^static char self[256];			\/* name of invoking program *\/$/;"	v	file:
+texthead	bin/disasm.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+I_ADD	bin/encode.h	/^#define I_ADD	/;"	d
+I_ADDI	bin/encode.h	/^#define I_ADDI	/;"	d
+I_ADDIU	bin/encode.h	/^#define I_ADDIU	/;"	d
+I_ADDU	bin/encode.h	/^#define I_ADDU	/;"	d
+I_AND	bin/encode.h	/^#define I_AND	/;"	d
+I_ANDI	bin/encode.h	/^#define I_ANDI	/;"	d
+I_BCOND	bin/encode.h	/^#define I_BCOND	/;"	d
+I_BEQ	bin/encode.h	/^#define I_BEQ	/;"	d
+I_BGEZ	bin/encode.h	/^#define I_BGEZ	/;"	d
+I_BGEZAL	bin/encode.h	/^#define I_BGEZAL	/;"	d
+I_BGTZ	bin/encode.h	/^#define I_BGTZ	/;"	d
+I_BLEZ	bin/encode.h	/^#define I_BLEZ	/;"	d
+I_BLTZ	bin/encode.h	/^#define I_BLTZ	/;"	d
+I_BLTZAL	bin/encode.h	/^#define I_BLTZAL	/;"	d
+I_BNE	bin/encode.h	/^#define I_BNE	/;"	d
+I_BREAK	bin/encode.h	/^#define I_BREAK	/;"	d
+I_COP0	bin/encode.h	/^#define I_COP0	/;"	d
+I_COP1	bin/encode.h	/^#define I_COP1	/;"	d
+I_COP2	bin/encode.h	/^#define I_COP2	/;"	d
+I_COP3	bin/encode.h	/^#define I_COP3	/;"	d
+I_DIV	bin/encode.h	/^#define I_DIV	/;"	d
+I_DIVU	bin/encode.h	/^#define I_DIVU	/;"	d
+I_J	bin/encode.h	/^#define I_J	/;"	d
+I_JAL	bin/encode.h	/^#define I_JAL	/;"	d
+I_JALR	bin/encode.h	/^#define I_JALR	/;"	d
+I_JR	bin/encode.h	/^#define I_JR	/;"	d
+I_LB	bin/encode.h	/^#define I_LB	/;"	d
+I_LBU	bin/encode.h	/^#define I_LBU	/;"	d
+I_LH	bin/encode.h	/^#define I_LH	/;"	d
+I_LHU	bin/encode.h	/^#define I_LHU	/;"	d
+I_LUI	bin/encode.h	/^#define I_LUI	/;"	d
+I_LW	bin/encode.h	/^#define I_LW	/;"	d
+I_LWC0	bin/encode.h	/^#define I_LWC0	/;"	d
+I_LWC1	bin/encode.h	/^#define I_LWC1	/;"	d
+I_LWC2	bin/encode.h	/^#define I_LWC2	/;"	d
+I_LWC3	bin/encode.h	/^#define I_LWC3	/;"	d
+I_LWL	bin/encode.h	/^#define I_LWL	/;"	d
+I_LWR	bin/encode.h	/^#define I_LWR	/;"	d
+I_MFHI	bin/encode.h	/^#define I_MFHI	/;"	d
+I_MFLO	bin/encode.h	/^#define I_MFLO	/;"	d
+I_MTHI	bin/encode.h	/^#define I_MTHI	/;"	d
+I_MTLO	bin/encode.h	/^#define I_MTLO	/;"	d
+I_MULT	bin/encode.h	/^#define I_MULT	/;"	d
+I_MULTU	bin/encode.h	/^#define I_MULTU	/;"	d
+I_NOP	bin/encode.h	/^#define I_NOP /;"	d
+I_NOR	bin/encode.h	/^#define I_NOR	/;"	d
+I_OR	bin/encode.h	/^#define I_OR	/;"	d
+I_ORI	bin/encode.h	/^#define I_ORI	/;"	d
+I_SB	bin/encode.h	/^#define I_SB	/;"	d
+I_SH	bin/encode.h	/^#define I_SH	/;"	d
+I_SLL	bin/encode.h	/^#define I_SLL	/;"	d
+I_SLLV	bin/encode.h	/^#define I_SLLV	/;"	d
+I_SLT	bin/encode.h	/^#define I_SLT	/;"	d
+I_SLTI	bin/encode.h	/^#define I_SLTI	/;"	d
+I_SLTIU	bin/encode.h	/^#define I_SLTIU	/;"	d
+I_SLTU	bin/encode.h	/^#define I_SLTU	/;"	d
+I_SPECIAL	bin/encode.h	/^#define I_SPECIAL	/;"	d
+I_SRA	bin/encode.h	/^#define I_SRA	/;"	d
+I_SRAV	bin/encode.h	/^#define I_SRAV	/;"	d
+I_SRL	bin/encode.h	/^#define I_SRL	/;"	d
+I_SRLV	bin/encode.h	/^#define I_SRLV	/;"	d
+I_SUB	bin/encode.h	/^#define I_SUB	/;"	d
+I_SUBU	bin/encode.h	/^#define I_SUBU	/;"	d
+I_SW	bin/encode.h	/^#define I_SW	/;"	d
+I_SWC0	bin/encode.h	/^#define I_SWC0	/;"	d
+I_SWC1	bin/encode.h	/^#define I_SWC1	/;"	d
+I_SWC2	bin/encode.h	/^#define I_SWC2	/;"	d
+I_SWC3	bin/encode.h	/^#define I_SWC3	/;"	d
+I_SWL	bin/encode.h	/^#define I_SWL	/;"	d
+I_SWR	bin/encode.h	/^#define I_SWR	/;"	d
+I_SYSCALL	bin/encode.h	/^#define I_SYSCALL	/;"	d
+I_XOR	bin/encode.h	/^#define I_XOR	/;"	d
+I_XORI	bin/encode.h	/^#define I_XORI	/;"	d
+FAST	bin/execute.c	/^#define FAST	/;"	d	file:
+HI	bin/execute.c	/^int HI, LO;			\/* mul\/div machine registers *\/$/;"	v
+IM	bin/execute.c	/^IM(i)$/;"	f
+LO	bin/execute.c	/^int HI, LO;			\/* mul\/div machine registers *\/$/;"	v
+NH	bin/execute.c	/^#define NH /;"	d	file:
+NNN	bin/execute.c	/^#define NNN /;"	d	file:
+NNNN	bin/execute.c	/^#define NNNN	/;"	d	file:
+RD	bin/execute.c	/^RD(i)$/;"	f
+RS	bin/execute.c	/^RS(i)$/;"	f
+RT	bin/execute.c	/^RT(i)$/;"	f
+Reg	bin/execute.c	/^int Reg[32];			\/* GPR's *\/$/;"	v
+addtable	bin/execute.c	/^int addtable[33][33];$/;"	v
+arch1cycles	bin/execute.c	/^int arch1cycles;$/;"	v
+b31	bin/execute.c	/^#define  b31(/;"	d	file:
+cc_add	bin/execute.c	/^#define cc_add(/;"	d	file:
+cc_logic	bin/execute.c	/^#define cc_logic(/;"	d	file:
+cc_mulscc	bin/execute.c	/^#define cc_mulscc(/;"	d	file:
+cc_sub	bin/execute.c	/^#define cc_sub(/;"	d	file:
+dump_reg	bin/execute.c	/^dump_reg()$/;"	f
+false	bin/execute.c	/^#define false	/;"	d	file:
+fmt	bin/execute.c	/^char fmt[] = "%6d";$/;"	v
+fmt2	bin/execute.c	/^char fmt2[] = "------";$/;"	v
+henter	bin/execute.c	/^henter(n)$/;"	f
+henters	bin/execute.c	/^void henters(n, hist)$/;"	f
+hist	bin/execute.c	/^static int hist[NNNN];$/;"	v	file:
+hists	bin/execute.c	/^static int hists[NH][NNN];$/;"	v	file:
+hoflo	bin/execute.c	/^int hoflo[NH], htotal[NH];$/;"	v
+hprint	bin/execute.c	/^hprint()$/;"	f
+htotal	bin/execute.c	/^int hoflo[NH], htotal[NH];$/;"	v
+ilog2	bin/execute.c	/^ilog2(i)$/;"	f
+numadds	bin/execute.c	/^int numadds=1, numsubs=1, numsuccesses, numcarries;$/;"	v
+numcarries	bin/execute.c	/^int numadds=1, numsubs=1, numsuccesses, numcarries;$/;"	v
+numjmpls	bin/execute.c	/^int numjmpls;$/;"	v
+numsubs	bin/execute.c	/^int numadds=1, numsubs=1, numsuccesses, numcarries;$/;"	v
+numsuccesses	bin/execute.c	/^int numadds=1, numsubs=1, numsuccesses, numcarries;$/;"	v
+ny	bin/execute.c	/^ny()$/;"	f
+patable	bin/execute.c	/^patable(tab)$/;"	f
+printhist	bin/execute.c	/^printhist()$/;"	f
+printstatistics	bin/execute.c	/^printstatistics()$/;"	f
+runprogram	bin/execute.c	/^runprogram(startpc, argc, argv)$/;"	f
+subtable	bin/execute.c	/^int subtable[33][33];$/;"	v
+true	bin/execute.c	/^#define true	/;"	d	file:
+u	bin/execute.c	/^u()				\/* unimplemented *\/$/;"	f
+extend	bin/instr.h	/^#define extend(/;"	d
+immed	bin/instr.h	/^#define immed(/;"	d
+off16	bin/instr.h	/^#define off16(/;"	d
+off26	bin/instr.h	/^#define off26(/;"	d
+rd	bin/instr.h	/^#define rd(/;"	d
+rs	bin/instr.h	/^#define rs(/;"	d
+rt	bin/instr.h	/^#define rt(/;"	d
+shamt	bin/instr.h	/^#define shamt(/;"	d
+top4	bin/instr.h	/^#define top4(/;"	d
+MEMSIZE	bin/int.h	/^#define MEMSIZE /;"	d
+amark	bin/int.h	/^#define amark(/;"	d
+cfetch	bin/int.h	/^#define cfetch(/;"	d
+cstore	bin/int.h	/^#define cstore(/;"	d
+fetch	bin/int.h	/^#define fetch(/;"	d
+ifetch	bin/int.h	/^#define ifetch(/;"	d
+imark	bin/int.h	/^#define imark(/;"	d
+memoffset	bin/int.h	/^#define memoffset /;"	d
+sfetch	bin/int.h	/^#define sfetch(/;"	d
+sstore	bin/int.h	/^#define sstore(/;"	d
+store	bin/int.h	/^#define store(/;"	d
+ucfetch	bin/int.h	/^#define ucfetch(/;"	d
+usfetch	bin/int.h	/^#define usfetch(/;"	d
+ASSOC	bin/main.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+LINESIZE	bin/main.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+LOADSECTION	bin/main.c	/^#define LOADSECTION(/;"	d	file:
+LRD	bin/main.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+NROWS	bin/main.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+RAND	bin/main.c	/^int NROWS=64, ASSOC=1, LINESIZE=4, RAND=0, LRD=0;$/;"	v
+Regtrace	bin/main.c	/^int TRACE, Traptrace, Regtrace;$/;"	v
+TRACE	bin/main.c	/^int TRACE, Traptrace, Regtrace;$/;"	v
+Traptrace	bin/main.c	/^int TRACE, Traptrace, Regtrace;$/;"	v
+bsshead	bin/main.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+datahead	bin/main.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+filename	bin/main.c	/^static char filename[1000] = "a.out";	\/* default a.out file *\/$/;"	v	file:
+fp	bin/main.c	/^static FILE *fp;$/;"	v	file:
+ldptr	bin/main.c	/^static LDFILE *ldptr;$/;"	v	file:
+load_program	bin/main.c	/^load_program(filename)$/;"	f
+m_alloc	bin/main.c	/^int *m_alloc(n)$/;"	f
+main	bin/main.c	/^main(argc, argv)$/;"	f
+mem	bin/main.c	/^char mem[MEMSIZE];		\/* main memory. use malloc later *\/$/;"	v
+rdatahead	bin/main.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+sbsshead	bin/main.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+sdatahead	bin/main.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+self	bin/main.c	/^static char self[256];			\/* name of invoking program *\/$/;"	v	file:
+string	bin/main.c	/^char *string(s)$/;"	f
+texthead	bin/main.c	/^static SCNHDR texthead, rdatahead, datahead, sdatahead, sbsshead, bsshead;$/;"	v	file:
+NOFFMAGIC	bin/noff.h	/^#define NOFFMAGIC	/;"	d
+NoffHeader	bin/noff.h	/^} NoffHeader;$/;"	t	typeref:struct:noffHeader
+Segment	bin/noff.h	/^} Segment;$/;"	t	typeref:struct:segment
+code	bin/noff.h	/^   Segment code;		\/* executable code segment *\/ $/;"	m	struct:noffHeader
+inFileAddr	bin/noff.h	/^  int inFileAddr;		\/* location of segment in this file *\/$/;"	m	struct:segment
+initData	bin/noff.h	/^   Segment initData;		\/* initialized data segment *\/$/;"	m	struct:noffHeader
+noffHeader	bin/noff.h	/^typedef struct noffHeader {$/;"	s
+noffMagic	bin/noff.h	/^   int noffMagic;		\/* should be NOFFMAGIC *\/$/;"	m	struct:noffHeader
+segment	bin/noff.h	/^typedef struct segment {$/;"	s
+size	bin/noff.h	/^  int size;			\/* size of segment *\/$/;"	m	struct:segment
+uninitData	bin/noff.h	/^   Segment uninitData;		\/* uninitialized data segment --$/;"	m	struct:noffHeader
+virtualAddr	bin/noff.h	/^  int virtualAddr;		\/* location of segment in virt addr space *\/$/;"	m	struct:segment
+normalops	bin/opstrings.c	/^char *normalops[] = {$/;"	v
+specialops	bin/opstrings.c	/^char *specialops[] = {$/;"	v
+MAIN	bin/out.c	/^#define MAIN$/;"	d	file:
+MAIN	bin/out.c	/^#undef MAIN$/;"	d	file:
+MAXDATA	bin/out.c	/^#define MAXDATA /;"	d	file:
+MAXRELOCS	bin/out.c	/^#define MAXRELOCS /;"	d	file:
+MAXSCNS	bin/out.c	/^#define MAXSCNS /;"	d	file:
+MAXSSPACE	bin/out.c	/^#define MAXSSPACE /;"	d	file:
+MAXSYMS	bin/out.c	/^#define MAXSYMS /;"	d	file:
+aouthdr	bin/out.c	/^struct aouthdr aouthdr;$/;"	v	typeref:struct:aouthdr
+column	bin/out.c	/^static column = 1;$/;"	v	file:
+data	bin/out.c	/^  long data[MAXDATA];$/;"	m	struct:data	file:
+data	bin/out.c	/^struct data {$/;"	s	file:
+filehdr	bin/out.c	/^struct filehdr filehdr;$/;"	v	typeref:struct:filehdr
+length	bin/out.c	/^  int length;$/;"	m	struct:data	file:
+main	bin/out.c	/^main(argc,argv)$/;"	f
+myprintf	bin/out.c	/^myprintf(va_alist)$/;"	f
+mysetfile	bin/out.c	/^mysetfile(f)$/;"	f
+mytab	bin/out.c	/^mytab(n)$/;"	f
+outfile	bin/out.c	/^static FILE *outfile = stdout;$/;"	v	file:
+print_reloc	bin/out.c	/^print_reloc(vaddr,i,j)$/;"	f
+print_section	bin/out.c	/^print_section(i)$/;"	f
+printf	bin/out.c	/^#define printf /;"	d	file:
+read_struct	bin/out.c	/^#define read_struct(/;"	d	file:
+reloc	bin/out.c	/^  struct reloc reloc[MAXRELOCS];$/;"	m	struct:data	typeref:struct:data::reloc	file:
+reloc_type	bin/out.c	/^char *reloc_type[] = {$/;"	v
+relocs	bin/out.c	/^  int relocs;$/;"	m	struct:data	file:
+scnhdr	bin/out.c	/^struct scnhdr scnhdr[MAXSCNS];$/;"	v	typeref:struct:scnhdr
+section	bin/out.c	/^struct data section[MAXSCNS];$/;"	v	typeref:struct:data
+section_name	bin/out.c	/^char *section_name[] = {$/;"	v
+sspace	bin/out.c	/^char sspace[20000];$/;"	v
+storage_class	bin/out.c	/^char *storage_class[] = {$/;"	v
+symbol_type	bin/out.c	/^char *symbol_type[] = {$/;"	v
+symbols	bin/out.c	/^EXTR symbols[MAXSYMS];$/;"	v
+symhdr	bin/out.c	/^HDRR symhdr;$/;"	v
+IOCPARM_MASK	bin/system.c	/^#define	IOCPARM_MASK	/;"	d	file:
+system_break	bin/system.c	/^system_break()$/;"	f
+system_trap	bin/system.c	/^system_trap()$/;"	f
+u_to_int_addr	bin/system.c	/^char *u_to_int_addr(ptr)$/;"	f
+u_to_int_fd	bin/system.c	/^u_to_int_fd(fd)$/;"	f
+CFILES	filesys/Makefile	/^CFILES = $(THREAD_C) $(USERPROG_C) $(VM_C) $(FILESYS_C)$/;"	m
+C_OFILES	filesys/Makefile	/^C_OFILES = $(THREAD_O) $(USERPROG_O) $(VM_O) $(FILESYS_O)$/;"	m
+DEFINES	filesys/Makefile	/^DEFINES =-DTHREADS -DUSER_PROGRAM -DVM -DFILESYS_NEEDED -DFILESYS$/;"	m
+HFILES	filesys/Makefile	/^HFILES = $(THREAD_H) $(USERPROG_H) $(VM_H) $(FILESYS_H)$/;"	m
+INCPATH	filesys/Makefile	/^INCPATH = -I..\/filesys -I..\/bin -I..\/vm -I..\/userprog -I..\/threads -I..\/machine$/;"	m
+Add	filesys/directory.cc	/^Directory::Add(char *name, int newSector)$/;"	f	class:Directory
+Directory	filesys/directory.cc	/^Directory::Directory(int size)$/;"	f	class:Directory
+FetchFrom	filesys/directory.cc	/^Directory::FetchFrom(OpenFile *file)$/;"	f	class:Directory
+Find	filesys/directory.cc	/^Directory::Find(char *name)$/;"	f	class:Directory
+FindIndex	filesys/directory.cc	/^Directory::FindIndex(char *name)$/;"	f	class:Directory
+List	filesys/directory.cc	/^Directory::List()$/;"	f	class:Directory
+Print	filesys/directory.cc	/^Directory::Print()$/;"	f	class:Directory
+Remove	filesys/directory.cc	/^Directory::Remove(char *name)$/;"	f	class:Directory
+WriteBack	filesys/directory.cc	/^Directory::WriteBack(OpenFile *file)$/;"	f	class:Directory
+~Directory	filesys/directory.cc	/^Directory::~Directory()$/;"	f	class:Directory
+DIRECTORY_H	filesys/directory.h	/^#define DIRECTORY_H$/;"	d
+Directory	filesys/directory.h	/^class Directory {$/;"	c
+DirectoryEntry	filesys/directory.h	/^class DirectoryEntry {$/;"	c
+FileNameMaxLen	filesys/directory.h	/^#define FileNameMaxLen /;"	d
+inUse	filesys/directory.h	/^    bool inUse;				\/\/ Is this directory entry in use?$/;"	m	class:DirectoryEntry
+name	filesys/directory.h	/^    char name[FileNameMaxLen + 1];	\/\/ Text name for file, with +1 for $/;"	m	class:DirectoryEntry
+sector	filesys/directory.h	/^    int sector;				\/\/ Location on disk to find the $/;"	m	class:DirectoryEntry
+table	filesys/directory.h	/^    DirectoryEntry *table;		\/\/ Table of pairs: $/;"	m	class:Directory
+tableSize	filesys/directory.h	/^    int tableSize;			\/\/ Number of directory entries$/;"	m	class:Directory
+Allocate	filesys/filehdr.cc	/^FileHeader::Allocate(BitMap *freeMap, int fileSize)$/;"	f	class:FileHeader
+ByteToSector	filesys/filehdr.cc	/^FileHeader::ByteToSector(int offset)$/;"	f	class:FileHeader
+Deallocate	filesys/filehdr.cc	/^FileHeader::Deallocate(BitMap *freeMap)$/;"	f	class:FileHeader
+FetchFrom	filesys/filehdr.cc	/^FileHeader::FetchFrom(int sector)$/;"	f	class:FileHeader
+FileLength	filesys/filehdr.cc	/^FileHeader::FileLength()$/;"	f	class:FileHeader
+Print	filesys/filehdr.cc	/^FileHeader::Print()$/;"	f	class:FileHeader
+WriteBack	filesys/filehdr.cc	/^FileHeader::WriteBack(int sector)$/;"	f	class:FileHeader
+FILEHDR_H	filesys/filehdr.h	/^#define FILEHDR_H$/;"	d
+FileHeader	filesys/filehdr.h	/^class FileHeader {$/;"	c
+MaxFileSize	filesys/filehdr.h	/^#define MaxFileSize /;"	d
+NumDirect	filesys/filehdr.h	/^#define NumDirect /;"	d
+dataSectors	filesys/filehdr.h	/^    int dataSectors[NumDirect];		\/\/ Disk sector numbers for each data $/;"	m	class:FileHeader
+numBytes	filesys/filehdr.h	/^    int numBytes;			\/\/ Number of bytes in the file$/;"	m	class:FileHeader
+numSectors	filesys/filehdr.h	/^    int numSectors;			\/\/ Number of data sectors in the file$/;"	m	class:FileHeader
+Create	filesys/filesys.cc	/^FileSystem::Create(char *name, int initialSize)$/;"	f	class:FileSystem
+DirectoryFileSize	filesys/filesys.cc	/^#define DirectoryFileSize /;"	d	file:
+DirectorySector	filesys/filesys.cc	/^#define DirectorySector /;"	d	file:
+FileSystem	filesys/filesys.cc	/^FileSystem::FileSystem(bool format)$/;"	f	class:FileSystem
+FreeMapFileSize	filesys/filesys.cc	/^#define FreeMapFileSize /;"	d	file:
+FreeMapSector	filesys/filesys.cc	/^#define FreeMapSector /;"	d	file:
+List	filesys/filesys.cc	/^FileSystem::List()$/;"	f	class:FileSystem
+NumDirEntries	filesys/filesys.cc	/^#define NumDirEntries /;"	d	file:
+Open	filesys/filesys.cc	/^FileSystem::Open(char *name)$/;"	f	class:FileSystem
+Print	filesys/filesys.cc	/^FileSystem::Print()$/;"	f	class:FileSystem
+Remove	filesys/filesys.cc	/^FileSystem::Remove(char *name)$/;"	f	class:FileSystem
+Create	filesys/filesys.h	/^    bool Create(char *name, int initialSize) { $/;"	f	class:FileSystem
+FS_H	filesys/filesys.h	/^#define FS_H$/;"	d
+FileSystem	filesys/filesys.h	/^    FileSystem(bool format) {}$/;"	f	class:FileSystem
+FileSystem	filesys/filesys.h	/^class FileSystem {$/;"	c
+Open	filesys/filesys.h	/^    OpenFile* Open(char *name) {$/;"	f	class:FileSystem
+Remove	filesys/filesys.h	/^    bool Remove(char *name) { return Unlink(name) == 0; }$/;"	f	class:FileSystem
+directoryFile	filesys/filesys.h	/^   OpenFile* directoryFile;		\/\/ "Root" directory -- list of $/;"	m	class:FileSystem
+freeMapFile	filesys/filesys.h	/^   OpenFile* freeMapFile;		\/\/ Bit map of free disk blocks,$/;"	m	class:FileSystem
+ContentSize	filesys/fstest.cc	/^#define ContentSize /;"	d	file:
+Contents	filesys/fstest.cc	/^#define Contents /;"	d	file:
+Copy	filesys/fstest.cc	/^Copy(char *from, char *to)$/;"	f
+FileName	filesys/fstest.cc	/^#define FileName /;"	d	file:
+FileRead	filesys/fstest.cc	/^FileRead()$/;"	f	file:
+FileSize	filesys/fstest.cc	/^#define FileSize /;"	d	file:
+FileWrite	filesys/fstest.cc	/^FileWrite()$/;"	f	file:
+PerformanceTest	filesys/fstest.cc	/^PerformanceTest()$/;"	f
+Print	filesys/fstest.cc	/^Print(char *name)$/;"	f
+TransferSize	filesys/fstest.cc	/^#define TransferSize /;"	d	file:
+Length	filesys/openfile.cc	/^OpenFile::Length() $/;"	f	class:OpenFile
+OpenFile	filesys/openfile.cc	/^OpenFile::OpenFile(int sector)$/;"	f	class:OpenFile
+Read	filesys/openfile.cc	/^OpenFile::Read(char *into, int numBytes)$/;"	f	class:OpenFile
+ReadAt	filesys/openfile.cc	/^OpenFile::ReadAt(char *into, int numBytes, int position)$/;"	f	class:OpenFile
+Seek	filesys/openfile.cc	/^OpenFile::Seek(int position)$/;"	f	class:OpenFile
+Write	filesys/openfile.cc	/^OpenFile::Write(char *into, int numBytes)$/;"	f	class:OpenFile
+WriteAt	filesys/openfile.cc	/^OpenFile::WriteAt(char *from, int numBytes, int position)$/;"	f	class:OpenFile
+~OpenFile	filesys/openfile.cc	/^OpenFile::~OpenFile()$/;"	f	class:OpenFile
+Length	filesys/openfile.h	/^    int Length() { Lseek(file, 0, 2); return Tell(file); }$/;"	f	class:OpenFile
+OPENFILE_H	filesys/openfile.h	/^#define OPENFILE_H$/;"	d
+OpenFile	filesys/openfile.h	/^    OpenFile(int f) { file = f; currentOffset = 0; }	\/\/ open the file$/;"	f	class:OpenFile
+OpenFile	filesys/openfile.h	/^class OpenFile {$/;"	c
+Read	filesys/openfile.h	/^    int Read(char *into, int numBytes) {$/;"	f	class:OpenFile
+ReadAt	filesys/openfile.h	/^    int ReadAt(char *into, int numBytes, int position) { $/;"	f	class:OpenFile
+Write	filesys/openfile.h	/^    int Write(char *from, int numBytes) {$/;"	f	class:OpenFile
+WriteAt	filesys/openfile.h	/^    int WriteAt(char *from, int numBytes, int position) { $/;"	f	class:OpenFile
+currentOffset	filesys/openfile.h	/^    int currentOffset;$/;"	m	class:OpenFile
+file	filesys/openfile.h	/^    int file;$/;"	m	class:OpenFile
+hdr	filesys/openfile.h	/^    FileHeader *hdr;			\/\/ Header for this file $/;"	m	class:OpenFile
+seekPosition	filesys/openfile.h	/^    int seekPosition;			\/\/ Current position within the file$/;"	m	class:OpenFile
+~OpenFile	filesys/openfile.h	/^    ~OpenFile() { Close(file); }			\/\/ close the file$/;"	f	class:OpenFile
+SWITCH	filesys/swtch.s	/^SWITCH:$/;"	l
+ThreadRoot	filesys/swtch.s	/^ThreadRoot:$/;"	l
+DiskRequestDone	filesys/synchdisk.cc	/^DiskRequestDone (int arg)$/;"	f	file:
+ReadSector	filesys/synchdisk.cc	/^SynchDisk::ReadSector(int sectorNumber, char* data)$/;"	f	class:SynchDisk
+RequestDone	filesys/synchdisk.cc	/^SynchDisk::RequestDone()$/;"	f	class:SynchDisk
+SynchDisk	filesys/synchdisk.cc	/^SynchDisk::SynchDisk(char* name)$/;"	f	class:SynchDisk
+WriteSector	filesys/synchdisk.cc	/^SynchDisk::WriteSector(int sectorNumber, char* data)$/;"	f	class:SynchDisk
+~SynchDisk	filesys/synchdisk.cc	/^SynchDisk::~SynchDisk()$/;"	f	class:SynchDisk
+SYNCHDISK_H	filesys/synchdisk.h	/^#define SYNCHDISK_H$/;"	d
+SynchDisk	filesys/synchdisk.h	/^class SynchDisk {$/;"	c
+disk	filesys/synchdisk.h	/^    Disk *disk;		  		\/\/ Raw disk device$/;"	m	class:SynchDisk
+lock	filesys/synchdisk.h	/^    Lock *lock;		  		\/\/ Only one read\/write request$/;"	m	class:SynchDisk
+semaphore	filesys/synchdisk.h	/^    Semaphore *semaphore; 		\/\/ To synchronize requesting thread $/;"	m	class:SynchDisk
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+CheckCharAvail	machine/console.cc	/^Console::CheckCharAvail()$/;"	f	class:Console
+Console	machine/console.cc	/^Console::Console(char *readFile, char *writeFile, VoidFunctionPtr readAvail, $/;"	f	class:Console
+ConsoleReadPoll	machine/console.cc	/^static void ConsoleReadPoll(int c) $/;"	f	file:
+ConsoleWriteDone	machine/console.cc	/^static void ConsoleWriteDone(int c)$/;"	f	file:
+GetChar	machine/console.cc	/^Console::GetChar()$/;"	f	class:Console
+PutChar	machine/console.cc	/^Console::PutChar(char ch)$/;"	f	class:Console
+WriteDone	machine/console.cc	/^Console::WriteDone()$/;"	f	class:Console
+~Console	machine/console.cc	/^Console::~Console()$/;"	f	class:Console
+CONSOLE_H	machine/console.h	/^#define CONSOLE_H$/;"	d
+Console	machine/console.h	/^class Console {$/;"	c
+handlerArg	machine/console.h	/^    int handlerArg;			\/\/ argument to be passed to the $/;"	m	class:Console
+incoming	machine/console.h	/^    char incoming;    			\/\/ Contains the character to be read,$/;"	m	class:Console
+putBusy	machine/console.h	/^    bool putBusy;    			\/\/ Is a PutChar operation in progress?$/;"	m	class:Console
+readFileNo	machine/console.h	/^    int readFileNo;			\/\/ UNIX file emulating the keyboard $/;"	m	class:Console
+readHandler	machine/console.h	/^    VoidFunctionPtr readHandler; 	\/\/ Interrupt handler to call when $/;"	m	class:Console
+writeFileNo	machine/console.h	/^    int writeFileNo;			\/\/ UNIX file emulating the display$/;"	m	class:Console
+writeHandler	machine/console.h	/^    VoidFunctionPtr writeHandler; 	\/\/ Interrupt handler to call when $/;"	m	class:Console
+ComputeLatency	machine/disk.cc	/^Disk::ComputeLatency(int newSector, bool writing)$/;"	f	class:Disk
+Disk	machine/disk.cc	/^Disk::Disk(char* name, VoidFunctionPtr callWhenDone, int callArg)$/;"	f	class:Disk
+DiskDone	machine/disk.cc	/^static void DiskDone(int arg) { ((Disk *)arg)->HandleInterrupt(); }$/;"	f	file:
+DiskSize	machine/disk.cc	/^#define DiskSize /;"	d	file:
+HandleInterrupt	machine/disk.cc	/^Disk::HandleInterrupt ()$/;"	f	class:Disk
+MagicNumber	machine/disk.cc	/^#define MagicNumber /;"	d	file:
+MagicSize	machine/disk.cc	/^#define MagicSize /;"	d	file:
+ModuloDiff	machine/disk.cc	/^Disk::ModuloDiff(int to, int from)$/;"	f	class:Disk
+PrintSector	machine/disk.cc	/^PrintSector (bool writing, int sector, char *data)$/;"	f	file:
+ReadRequest	machine/disk.cc	/^Disk::ReadRequest(int sectorNumber, char* data)$/;"	f	class:Disk
+TimeToSeek	machine/disk.cc	/^Disk::TimeToSeek(int newSector, int *rotation) $/;"	f	class:Disk
+UpdateLast	machine/disk.cc	/^Disk::UpdateLast(int newSector)$/;"	f	class:Disk
+WriteRequest	machine/disk.cc	/^Disk::WriteRequest(int sectorNumber, char* data)$/;"	f	class:Disk
+~Disk	machine/disk.cc	/^Disk::~Disk()$/;"	f	class:Disk
+DISK_H	machine/disk.h	/^#define DISK_H$/;"	d
+Disk	machine/disk.h	/^class Disk {$/;"	c
+NumSectors	machine/disk.h	/^#define NumSectors /;"	d
+NumTracks	machine/disk.h	/^#define NumTracks /;"	d
+SectorSize	machine/disk.h	/^#define SectorSize /;"	d
+SectorsPerTrack	machine/disk.h	/^#define SectorsPerTrack /;"	d
+active	machine/disk.h	/^    bool active;     			\/\/ Is a disk operation in progress?$/;"	m	class:Disk
+bufferInit	machine/disk.h	/^    int bufferInit;			\/\/ When the track buffer started $/;"	m	class:Disk
+fileno	machine/disk.h	/^    int fileno;				\/\/ UNIX file number for simulated disk $/;"	m	class:Disk
+handler	machine/disk.h	/^    VoidFunctionPtr handler;		\/\/ Interrupt handler, to be invoked $/;"	m	class:Disk
+handlerArg	machine/disk.h	/^    int handlerArg;			\/\/ Argument to interrupt handler $/;"	m	class:Disk
+lastSector	machine/disk.h	/^    int lastSector;			\/\/ The previous disk request $/;"	m	class:Disk
+ChangeLevel	machine/interrupt.cc	/^Interrupt::ChangeLevel(IntStatus old, IntStatus now)$/;"	f	class:Interrupt
+CheckIfDue	machine/interrupt.cc	/^Interrupt::CheckIfDue(bool advanceClock)$/;"	f	class:Interrupt
+DumpState	machine/interrupt.cc	/^Interrupt::DumpState()$/;"	f	class:Interrupt
+Enable	machine/interrupt.cc	/^Interrupt::Enable()$/;"	f	class:Interrupt
+Halt	machine/interrupt.cc	/^Interrupt::Halt()$/;"	f	class:Interrupt
+Idle	machine/interrupt.cc	/^Interrupt::Idle()$/;"	f	class:Interrupt
+Interrupt	machine/interrupt.cc	/^Interrupt::Interrupt()$/;"	f	class:Interrupt
+OneTick	machine/interrupt.cc	/^Interrupt::OneTick()$/;"	f	class:Interrupt
+PendingInterrupt	machine/interrupt.cc	/^PendingInterrupt::PendingInterrupt(VoidFunctionPtr func, int param, int time, $/;"	f	class:PendingInterrupt
+PrintPending	machine/interrupt.cc	/^PrintPending(int arg)$/;"	f	file:
+Schedule	machine/interrupt.cc	/^Interrupt::Schedule(VoidFunctionPtr handler, int arg, int fromNow, IntType type)$/;"	f	class:Interrupt
+SetLevel	machine/interrupt.cc	/^Interrupt::SetLevel(IntStatus now)$/;"	f	class:Interrupt
+YieldOnReturn	machine/interrupt.cc	/^Interrupt::YieldOnReturn()$/;"	f	class:Interrupt
+intLevelNames	machine/interrupt.cc	/^static char *intLevelNames[] = { "off", "on"};$/;"	v	file:
+intTypeNames	machine/interrupt.cc	/^static char *intTypeNames[] = { "timer", "disk", "console write", $/;"	v	file:
+~Interrupt	machine/interrupt.cc	/^Interrupt::~Interrupt()$/;"	f	class:Interrupt
+ConsoleReadInt	machine/interrupt.h	/^enum IntType { TimerInt, DiskInt, ConsoleWriteInt, ConsoleReadInt, $/;"	e	enum:IntType
+ConsoleWriteInt	machine/interrupt.h	/^enum IntType { TimerInt, DiskInt, ConsoleWriteInt, ConsoleReadInt, $/;"	e	enum:IntType
+DiskInt	machine/interrupt.h	/^enum IntType { TimerInt, DiskInt, ConsoleWriteInt, ConsoleReadInt, $/;"	e	enum:IntType
+INTERRUPT_H	machine/interrupt.h	/^#define INTERRUPT_H$/;"	d
+IdleMode	machine/interrupt.h	/^enum MachineStatus {IdleMode, SystemMode, UserMode};$/;"	e	enum:MachineStatus
+IntOff	machine/interrupt.h	/^enum IntStatus { IntOff, IntOn };$/;"	e	enum:IntStatus
+IntOn	machine/interrupt.h	/^enum IntStatus { IntOff, IntOn };$/;"	e	enum:IntStatus
+IntStatus	machine/interrupt.h	/^enum IntStatus { IntOff, IntOn };$/;"	g
+IntType	machine/interrupt.h	/^enum IntType { TimerInt, DiskInt, ConsoleWriteInt, ConsoleReadInt, $/;"	g
+Interrupt	machine/interrupt.h	/^class Interrupt {$/;"	c
+MachineStatus	machine/interrupt.h	/^enum MachineStatus {IdleMode, SystemMode, UserMode};$/;"	g
+NetworkRecvInt	machine/interrupt.h	/^				NetworkSendInt, NetworkRecvInt};$/;"	e	enum:IntType
+NetworkSendInt	machine/interrupt.h	/^				NetworkSendInt, NetworkRecvInt};$/;"	e	enum:IntType
+PendingInterrupt	machine/interrupt.h	/^class PendingInterrupt {$/;"	c
+SystemMode	machine/interrupt.h	/^enum MachineStatus {IdleMode, SystemMode, UserMode};$/;"	e	enum:MachineStatus
+TimerInt	machine/interrupt.h	/^enum IntType { TimerInt, DiskInt, ConsoleWriteInt, ConsoleReadInt, $/;"	e	enum:IntType
+UserMode	machine/interrupt.h	/^enum MachineStatus {IdleMode, SystemMode, UserMode};$/;"	e	enum:MachineStatus
+arg	machine/interrupt.h	/^    int arg;                    \/\/ The argument to the function.$/;"	m	class:PendingInterrupt
+getLevel	machine/interrupt.h	/^    IntStatus getLevel() {return level;}\/\/ Return whether interrupts$/;"	f	class:Interrupt
+getStatus	machine/interrupt.h	/^    MachineStatus getStatus() { return status; } \/\/ idle, kernel, user$/;"	f	class:Interrupt
+handler	machine/interrupt.h	/^    VoidFunctionPtr handler;    \/\/ The function (in the hardware device$/;"	m	class:PendingInterrupt
+inHandler	machine/interrupt.h	/^    bool inHandler;		\/\/ TRUE if we are running an interrupt handler$/;"	m	class:Interrupt
+level	machine/interrupt.h	/^    IntStatus level;		\/\/ are interrupts enabled or disabled?$/;"	m	class:Interrupt
+pending	machine/interrupt.h	/^    List *pending;		\/\/ the list of interrupts scheduled$/;"	m	class:Interrupt
+setStatus	machine/interrupt.h	/^    void setStatus(MachineStatus st) { status = st; }$/;"	f	class:Interrupt
+status	machine/interrupt.h	/^    MachineStatus status;	\/\/ idle, kernel mode, user mode$/;"	m	class:Interrupt
+type	machine/interrupt.h	/^    IntType type;		\/\/ for debugging$/;"	m	class:PendingInterrupt
+when	machine/interrupt.h	/^    int when;			\/\/ When the interrupt is supposed to fire$/;"	m	class:PendingInterrupt
+yieldOnReturn	machine/interrupt.h	/^    bool yieldOnReturn; 	\/\/ TRUE if we are to context switch$/;"	m	class:Interrupt
+CheckEndian	machine/machine.cc	/^void CheckEndian()$/;"	f	file:
+Debugger	machine/machine.cc	/^void Machine::Debugger()$/;"	f	class:Machine
+DumpState	machine/machine.cc	/^Machine::DumpState()$/;"	f	class:Machine
+Machine	machine/machine.cc	/^Machine::Machine(bool debug)$/;"	f	class:Machine
+RaiseException	machine/machine.cc	/^Machine::RaiseException(ExceptionType which, int badVAddr)$/;"	f	class:Machine
+ReadRegister	machine/machine.cc	/^int Machine::ReadRegister(int num)$/;"	f	class:Machine
+WriteRegister	machine/machine.cc	/^void Machine::WriteRegister(int num, int value)$/;"	f	class:Machine
+exceptionNames	machine/machine.cc	/^static char* exceptionNames[] = { "no exception", "syscall", $/;"	v	file:
+~Machine	machine/machine.cc	/^Machine::~Machine()$/;"	f	class:Machine
+AddressErrorException	machine/machine.h	/^		     AddressErrorException, \/\/ Unaligned reference or one that$/;"	e	enum:ExceptionType
+BadVAddrReg	machine/machine.h	/^#define BadVAddrReg	/;"	d
+BusErrorException	machine/machine.h	/^		     BusErrorException,     \/\/ Translation resulted in an $/;"	e	enum:ExceptionType
+ExceptionType	machine/machine.h	/^enum ExceptionType { NoException,           \/\/ Everything ok!$/;"	g
+HiReg	machine/machine.h	/^#define HiReg	/;"	d
+IllegalInstrException	machine/machine.h	/^		     IllegalInstrException, \/\/ Unimplemented or reserved instr.$/;"	e	enum:ExceptionType
+Instruction	machine/machine.h	/^class Instruction {$/;"	c
+LoReg	machine/machine.h	/^#define LoReg	/;"	d
+LoadReg	machine/machine.h	/^#define LoadReg	/;"	d
+LoadValueReg	machine/machine.h	/^#define LoadValueReg /;"	d
+MACHINE_H	machine/machine.h	/^#define MACHINE_H$/;"	d
+Machine	machine/machine.h	/^class Machine {$/;"	c
+MemorySize	machine/machine.h	/^#define MemorySize /;"	d
+NextPCReg	machine/machine.h	/^#define NextPCReg	/;"	d
+NoException	machine/machine.h	/^enum ExceptionType { NoException,           \/\/ Everything ok!$/;"	e	enum:ExceptionType
+NumExceptionTypes	machine/machine.h	/^		     NumExceptionTypes$/;"	e	enum:ExceptionType
+NumGPRegs	machine/machine.h	/^#define NumGPRegs	/;"	d
+NumPhysPages	machine/machine.h	/^#define NumPhysPages /;"	d
+NumTotalRegs	machine/machine.h	/^#define NumTotalRegs /;"	d
+OverflowException	machine/machine.h	/^		     OverflowException,     \/\/ Integer overflow in add or sub.$/;"	e	enum:ExceptionType
+PCReg	machine/machine.h	/^#define PCReg	/;"	d
+PageFaultException	machine/machine.h	/^		     PageFaultException,    \/\/ No valid translation found$/;"	e	enum:ExceptionType
+PageSize	machine/machine.h	/^#define PageSize /;"	d
+PrevPCReg	machine/machine.h	/^#define PrevPCReg	/;"	d
+ReadOnlyException	machine/machine.h	/^		     ReadOnlyException,     \/\/ Write attempted to page marked $/;"	e	enum:ExceptionType
+RetAddrReg	machine/machine.h	/^#define RetAddrReg	/;"	d
+StackReg	machine/machine.h	/^#define StackReg	/;"	d
+SyscallException	machine/machine.h	/^		     SyscallException,      \/\/ A program executed a system call.$/;"	e	enum:ExceptionType
+TLBSize	machine/machine.h	/^#define TLBSize	/;"	d
+extra	machine/machine.h	/^    int extra;       \/\/ Immediate or target or shamt field or offset.$/;"	m	class:Instruction
+mainMemory	machine/machine.h	/^    char *mainMemory;		\/\/ physical memory to store user program,$/;"	m	class:Machine
+opCode	machine/machine.h	/^    char opCode;     \/\/ Type of instruction.  This is NOT the same as the$/;"	m	class:Instruction
+pageTable	machine/machine.h	/^    TranslationEntry *pageTable;$/;"	m	class:Machine
+pageTableSize	machine/machine.h	/^    unsigned int pageTableSize;$/;"	m	class:Machine
+rd	machine/machine.h	/^    char rs, rt, rd; \/\/ Three registers from instruction.$/;"	m	class:Instruction
+registers	machine/machine.h	/^    int registers[NumTotalRegs]; \/\/ CPU registers, for executing user programs$/;"	m	class:Machine
+rs	machine/machine.h	/^    char rs, rt, rd; \/\/ Three registers from instruction.$/;"	m	class:Instruction
+rt	machine/machine.h	/^    char rs, rt, rd; \/\/ Three registers from instruction.$/;"	m	class:Instruction
+runUntilTime	machine/machine.h	/^    int runUntilTime;		\/\/ drop back into the debugger when simulated$/;"	m	class:Machine
+singleStep	machine/machine.h	/^    bool singleStep;		\/\/ drop back into the debugger after each$/;"	m	class:Machine
+tlb	machine/machine.h	/^    TranslationEntry *tlb;		\/\/ this pointer should be considered $/;"	m	class:Machine
+value	machine/machine.h	/^    unsigned int value; \/\/ binary representation of the instruction$/;"	m	class:Instruction
+Decode	machine/mipssim.cc	/^Instruction::Decode()$/;"	f	class:Instruction
+DelayedLoad	machine/mipssim.cc	/^Machine::DelayedLoad(int nextReg, int nextValue)$/;"	f	class:Machine
+Mult	machine/mipssim.cc	/^Mult(int a, int b, bool signedArith, int* hiPtr, int* loPtr)$/;"	f	file:
+OneInstruction	machine/mipssim.cc	/^Machine::OneInstruction(Instruction *instr)$/;"	f	class:Machine
+Run	machine/mipssim.cc	/^Machine::Run()$/;"	f	class:Machine
+TypeToReg	machine/mipssim.cc	/^TypeToReg(RegType reg, Instruction *instr)$/;"	f	file:
+BCOND	machine/mipssim.h	/^#define BCOND	/;"	d
+EXTRA	machine/mipssim.h	/^enum RegType { NONE, RS, RT, RD, EXTRA }; $/;"	e	enum:RegType
+IFMT	machine/mipssim.h	/^#define IFMT /;"	d
+IndexToAddr	machine/mipssim.h	/^#define IndexToAddr(/;"	d
+JFMT	machine/mipssim.h	/^#define JFMT /;"	d
+MIPSSIM_H	machine/mipssim.h	/^#define MIPSSIM_H$/;"	d
+MaxOpcode	machine/mipssim.h	/^#define MaxOpcode	/;"	d
+NONE	machine/mipssim.h	/^enum RegType { NONE, RS, RT, RD, EXTRA }; $/;"	e	enum:RegType
+OP_ADD	machine/mipssim.h	/^#define OP_ADD	/;"	d
+OP_ADDI	machine/mipssim.h	/^#define OP_ADDI	/;"	d
+OP_ADDIU	machine/mipssim.h	/^#define OP_ADDIU	/;"	d
+OP_ADDU	machine/mipssim.h	/^#define OP_ADDU	/;"	d
+OP_AND	machine/mipssim.h	/^#define OP_AND	/;"	d
+OP_ANDI	machine/mipssim.h	/^#define OP_ANDI	/;"	d
+OP_BEQ	machine/mipssim.h	/^#define OP_BEQ	/;"	d
+OP_BGEZ	machine/mipssim.h	/^#define OP_BGEZ	/;"	d
+OP_BGEZAL	machine/mipssim.h	/^#define OP_BGEZAL	/;"	d
+OP_BGTZ	machine/mipssim.h	/^#define OP_BGTZ	/;"	d
+OP_BLEZ	machine/mipssim.h	/^#define OP_BLEZ	/;"	d
+OP_BLTZ	machine/mipssim.h	/^#define OP_BLTZ	/;"	d
+OP_BLTZAL	machine/mipssim.h	/^#define OP_BLTZAL	/;"	d
+OP_BNE	machine/mipssim.h	/^#define OP_BNE	/;"	d
+OP_DIV	machine/mipssim.h	/^#define OP_DIV	/;"	d
+OP_DIVU	machine/mipssim.h	/^#define OP_DIVU	/;"	d
+OP_J	machine/mipssim.h	/^#define OP_J	/;"	d
+OP_JAL	machine/mipssim.h	/^#define OP_JAL	/;"	d
+OP_JALR	machine/mipssim.h	/^#define OP_JALR	/;"	d
+OP_JR	machine/mipssim.h	/^#define OP_JR	/;"	d
+OP_LB	machine/mipssim.h	/^#define OP_LB	/;"	d
+OP_LBU	machine/mipssim.h	/^#define OP_LBU	/;"	d
+OP_LH	machine/mipssim.h	/^#define OP_LH	/;"	d
+OP_LHU	machine/mipssim.h	/^#define OP_LHU	/;"	d
+OP_LUI	machine/mipssim.h	/^#define OP_LUI	/;"	d
+OP_LW	machine/mipssim.h	/^#define OP_LW	/;"	d
+OP_LWL	machine/mipssim.h	/^#define OP_LWL	/;"	d
+OP_LWR	machine/mipssim.h	/^#define OP_LWR	/;"	d
+OP_MFHI	machine/mipssim.h	/^#define OP_MFHI	/;"	d
+OP_MFLO	machine/mipssim.h	/^#define OP_MFLO	/;"	d
+OP_MTHI	machine/mipssim.h	/^#define OP_MTHI	/;"	d
+OP_MTLO	machine/mipssim.h	/^#define OP_MTLO	/;"	d
+OP_MULT	machine/mipssim.h	/^#define OP_MULT	/;"	d
+OP_MULTU	machine/mipssim.h	/^#define OP_MULTU	/;"	d
+OP_NOR	machine/mipssim.h	/^#define OP_NOR	/;"	d
+OP_OR	machine/mipssim.h	/^#define OP_OR	/;"	d
+OP_ORI	machine/mipssim.h	/^#define OP_ORI	/;"	d
+OP_RES	machine/mipssim.h	/^#define OP_RES	/;"	d
+OP_RFE	machine/mipssim.h	/^#define OP_RFE	/;"	d
+OP_SB	machine/mipssim.h	/^#define OP_SB	/;"	d
+OP_SH	machine/mipssim.h	/^#define OP_SH	/;"	d
+OP_SLL	machine/mipssim.h	/^#define OP_SLL	/;"	d
+OP_SLLV	machine/mipssim.h	/^#define OP_SLLV	/;"	d
+OP_SLT	machine/mipssim.h	/^#define OP_SLT	/;"	d
+OP_SLTI	machine/mipssim.h	/^#define OP_SLTI	/;"	d
+OP_SLTIU	machine/mipssim.h	/^#define OP_SLTIU	/;"	d
+OP_SLTU	machine/mipssim.h	/^#define OP_SLTU	/;"	d
+OP_SRA	machine/mipssim.h	/^#define OP_SRA	/;"	d
+OP_SRAV	machine/mipssim.h	/^#define OP_SRAV	/;"	d
+OP_SRL	machine/mipssim.h	/^#define OP_SRL	/;"	d
+OP_SRLV	machine/mipssim.h	/^#define OP_SRLV	/;"	d
+OP_SUB	machine/mipssim.h	/^#define OP_SUB	/;"	d
+OP_SUBU	machine/mipssim.h	/^#define OP_SUBU	/;"	d
+OP_SW	machine/mipssim.h	/^#define OP_SW	/;"	d
+OP_SWL	machine/mipssim.h	/^#define OP_SWL	/;"	d
+OP_SWR	machine/mipssim.h	/^#define OP_SWR	/;"	d
+OP_SYSCALL	machine/mipssim.h	/^#define OP_SYSCALL	/;"	d
+OP_UNIMP	machine/mipssim.h	/^#define OP_UNIMP	/;"	d
+OP_XOR	machine/mipssim.h	/^#define OP_XOR	/;"	d
+OP_XORI	machine/mipssim.h	/^#define OP_XORI	/;"	d
+OpInfo	machine/mipssim.h	/^struct OpInfo {$/;"	s
+OpString	machine/mipssim.h	/^struct OpString {$/;"	s
+R31	machine/mipssim.h	/^#define R31	/;"	d
+RD	machine/mipssim.h	/^enum RegType { NONE, RS, RT, RD, EXTRA }; $/;"	e	enum:RegType
+RFMT	machine/mipssim.h	/^#define RFMT /;"	d
+RS	machine/mipssim.h	/^enum RegType { NONE, RS, RT, RD, EXTRA }; $/;"	e	enum:RegType
+RT	machine/mipssim.h	/^enum RegType { NONE, RS, RT, RD, EXTRA }; $/;"	e	enum:RegType
+RegType	machine/mipssim.h	/^enum RegType { NONE, RS, RT, RD, EXTRA }; $/;"	g
+SIGN_BIT	machine/mipssim.h	/^#define SIGN_BIT	/;"	d
+SPECIAL	machine/mipssim.h	/^#define SPECIAL /;"	d
+args	machine/mipssim.h	/^    RegType args[3];$/;"	m	struct:OpString
+format	machine/mipssim.h	/^    int format;		\/* Format type (IFMT or JFMT or RFMT) *\/$/;"	m	struct:OpInfo
+opCode	machine/mipssim.h	/^    int opCode;		\/* Translated op code. *\/$/;"	m	struct:OpInfo
+opStrings	machine/mipssim.h	/^static struct OpString opStrings[] = {$/;"	v	typeref:struct:OpString
+opTable	machine/mipssim.h	/^static OpInfo opTable[] = {$/;"	v
+specialTable	machine/mipssim.h	/^static int specialTable[] = {$/;"	v
+string	machine/mipssim.h	/^    char *string;	\/\/ Printed version of instruction$/;"	m	struct:OpString
+CheckPktAvail	machine/network.cc	/^Network::CheckPktAvail()$/;"	f	class:Network
+Network	machine/network.cc	/^Network::Network(NetworkAddress addr, double reliability,$/;"	f	class:Network
+NetworkReadPoll	machine/network.cc	/^static void NetworkReadPoll(int arg)$/;"	f	file:
+NetworkSendDone	machine/network.cc	/^static void NetworkSendDone(int arg)$/;"	f	file:
+Receive	machine/network.cc	/^Network::Receive(char* data)$/;"	f	class:Network
+Send	machine/network.cc	/^Network::Send(PacketHeader hdr, char* data)$/;"	f	class:Network
+SendDone	machine/network.cc	/^Network::SendDone()$/;"	f	class:Network
+~Network	machine/network.cc	/^Network::~Network()$/;"	f	class:Network
+MaxPacketSize	machine/network.h	/^#define MaxPacketSize /;"	d
+MaxWireSize	machine/network.h	/^#define MaxWireSize /;"	d
+NETWORK_H	machine/network.h	/^#define NETWORK_H$/;"	d
+Network	machine/network.h	/^class Network {$/;"	c
+NetworkAddress	machine/network.h	/^typedef int NetworkAddress;	 $/;"	t
+PacketHeader	machine/network.h	/^class PacketHeader {$/;"	c
+chanceToWork	machine/network.h	/^    double chanceToWork;	\/\/ Likelihood packet will be dropped$/;"	m	class:Network
+from	machine/network.h	/^    NetworkAddress from;	\/\/ source machine ID$/;"	m	class:PacketHeader
+handlerArg	machine/network.h	/^    int handlerArg;		\/\/ Argument to be passed to interrupt handler$/;"	m	class:Network
+ident	machine/network.h	/^    NetworkAddress ident;	\/\/ This machine's network address$/;"	m	class:Network
+inHdr	machine/network.h	/^    PacketHeader inHdr;		\/\/ Information about arrived packet$/;"	m	class:Network
+inbox	machine/network.h	/^    char inbox[MaxPacketSize];  \/\/ Data for arrived packet$/;"	m	class:Network
+length	machine/network.h	/^    unsigned length;	 	\/\/ bytes of packet data, excluding the $/;"	m	class:PacketHeader
+packetAvail	machine/network.h	/^    bool packetAvail;		\/\/ Packet has arrived, can be pulled off of$/;"	m	class:Network
+readHandler	machine/network.h	/^    VoidFunctionPtr readHandler;  \/\/ Interrupt handler, signalling packet has $/;"	m	class:Network
+sendBusy	machine/network.h	/^    bool sendBusy;		\/\/ Packet is being sent.$/;"	m	class:Network
+sock	machine/network.h	/^    int sock;			\/\/ UNIX socket number for incoming packets$/;"	m	class:Network
+sockName	machine/network.h	/^    char sockName[32];		\/\/ File name corresponding to UNIX socket$/;"	m	class:Network
+to	machine/network.h	/^    NetworkAddress to;		\/\/ Destination machine ID$/;"	m	class:PacketHeader
+writeHandler	machine/network.h	/^    VoidFunctionPtr writeHandler; \/\/ Interrupt handler, signalling next packet $/;"	m	class:Network
+Print	machine/stats.cc	/^Statistics::Print()$/;"	f	class:Statistics
+Statistics	machine/stats.cc	/^Statistics::Statistics()$/;"	f	class:Statistics
+ConsoleTime	machine/stats.h	/^#define ConsoleTime /;"	d
+NetworkTime	machine/stats.h	/^#define NetworkTime /;"	d
+RotationTime	machine/stats.h	/^#define RotationTime /;"	d
+STATS_H	machine/stats.h	/^#define STATS_H$/;"	d
+SeekTime	machine/stats.h	/^#define SeekTime /;"	d
+Statistics	machine/stats.h	/^class Statistics {$/;"	c
+SystemTick	machine/stats.h	/^#define SystemTick /;"	d
+TimerTicks	machine/stats.h	/^#define TimerTicks /;"	d
+UserTick	machine/stats.h	/^#define UserTick /;"	d
+idleTicks	machine/stats.h	/^    int idleTicks;       	\/\/ Time spent idle (no threads to run)$/;"	m	class:Statistics
+numConsoleCharsRead	machine/stats.h	/^    int numConsoleCharsRead;	\/\/ number of characters read from the keyboard$/;"	m	class:Statistics
+numConsoleCharsWritten	machine/stats.h	/^    int numConsoleCharsWritten; \/\/ number of characters written to the display$/;"	m	class:Statistics
+numDiskReads	machine/stats.h	/^    int numDiskReads;		\/\/ number of disk read requests$/;"	m	class:Statistics
+numDiskWrites	machine/stats.h	/^    int numDiskWrites;		\/\/ number of disk write requests$/;"	m	class:Statistics
+numPacketsRecvd	machine/stats.h	/^    int numPacketsRecvd;	\/\/ number of packets received over the network$/;"	m	class:Statistics
+numPacketsSent	machine/stats.h	/^    int numPacketsSent;		\/\/ number of packets sent over the network$/;"	m	class:Statistics
+numPageFaults	machine/stats.h	/^    int numPageFaults;		\/\/ number of virtual memory page faults$/;"	m	class:Statistics
+systemTicks	machine/stats.h	/^    int systemTicks;	 	\/\/ Time spent executing system code$/;"	m	class:Statistics
+totalTicks	machine/stats.h	/^    int totalTicks;      	\/\/ Total time running Nachos$/;"	m	class:Statistics
+userTicks	machine/stats.h	/^    int userTicks;       	\/\/ Time spent executing user code$/;"	m	class:Statistics
+Abort	machine/sysdep.cc	/^Abort()$/;"	f
+AllocBoundedArray	machine/sysdep.cc	/^AllocBoundedArray(int size)$/;"	f
+AssignNameToSocket	machine/sysdep.cc	/^AssignNameToSocket(char *socketName, int sockID)$/;"	f
+CallOnUserAbort	machine/sysdep.cc	/^CallOnUserAbort(VoidNoArgFunctionPtr func)$/;"	f
+Close	machine/sysdep.cc	/^Close(int fd)$/;"	f
+CloseSocket	machine/sysdep.cc	/^CloseSocket(int sockID)$/;"	f
+DeAssignNameToSocket	machine/sysdep.cc	/^DeAssignNameToSocket(char *socketName)$/;"	f
+DeallocBoundedArray	machine/sysdep.cc	/^DeallocBoundedArray(char *ptr, int size)$/;"	f
+Delay	machine/sysdep.cc	/^Delay(int seconds)$/;"	f
+Exit	machine/sysdep.cc	/^Exit(int exitCode)$/;"	f
+InitSocketName	machine/sysdep.cc	/^InitSocketName(struct sockaddr_un *uname, char *name)$/;"	f	file:
+Lseek	machine/sysdep.cc	/^Lseek(int fd, int offset, int whence)$/;"	f
+OpenForReadWrite	machine/sysdep.cc	/^OpenForReadWrite(char *name, bool crashOnError)$/;"	f
+OpenForWrite	machine/sysdep.cc	/^OpenForWrite(char *name)$/;"	f
+OpenSocket	machine/sysdep.cc	/^OpenSocket()$/;"	f
+PollFile	machine/sysdep.cc	/^PollFile(int fd)$/;"	f
+PollSocket	machine/sysdep.cc	/^PollSocket(int sockID)$/;"	f
+Random	machine/sysdep.cc	/^Random()$/;"	f
+RandomInit	machine/sysdep.cc	/^RandomInit(unsigned seed)$/;"	f
+Read	machine/sysdep.cc	/^Read(int fd, char *buffer, int nBytes)$/;"	f
+ReadFromSocket	machine/sysdep.cc	/^ReadFromSocket(int sockID, char *buffer, int packetSize)$/;"	f
+ReadPartial	machine/sysdep.cc	/^ReadPartial(int fd, char *buffer, int nBytes)$/;"	f
+SendToSocket	machine/sysdep.cc	/^SendToSocket(int sockID, char *buffer, int packetSize, char *toName)$/;"	f
+Tell	machine/sysdep.cc	/^Tell(int fd)$/;"	f
+Unlink	machine/sysdep.cc	/^Unlink(char *name)$/;"	f
+WriteFile	machine/sysdep.cc	/^WriteFile(int fd, char *buffer, int nBytes)$/;"	f
+SYSDEP_H	machine/sysdep.h	/^#define SYSDEP_H$/;"	d
+TimeOfNextInterrupt	machine/timer.cc	/^Timer::TimeOfNextInterrupt() $/;"	f	class:Timer
+Timer	machine/timer.cc	/^Timer::Timer(VoidFunctionPtr timerHandler, int callArg, bool doRandom)$/;"	f	class:Timer
+TimerExpired	machine/timer.cc	/^Timer::TimerExpired() $/;"	f	class:Timer
+TimerHandler	machine/timer.cc	/^static void TimerHandler(int arg)$/;"	f	file:
+TIMER_H	machine/timer.h	/^#define TIMER_H$/;"	d
+Timer	machine/timer.h	/^class Timer {$/;"	c
+arg	machine/timer.h	/^    int arg;			\/\/ argument to pass to interrupt handler$/;"	m	class:Timer
+handler	machine/timer.h	/^    VoidFunctionPtr handler;	\/\/ timer interrupt handler $/;"	m	class:Timer
+randomize	machine/timer.h	/^    bool randomize;		\/\/ set if we need to use a random timeout delay$/;"	m	class:Timer
+~Timer	machine/timer.h	/^    ~Timer() {}$/;"	f	class:Timer
+ReadMem	machine/translate.cc	/^Machine::ReadMem(int addr, int size, int *value)$/;"	f	class:Machine
+ShortToHost	machine/translate.cc	/^ShortToHost(unsigned short shortword) {$/;"	f
+ShortToMachine	machine/translate.cc	/^ShortToMachine(unsigned short shortword) { return ShortToHost(shortword); }$/;"	f
+Translate	machine/translate.cc	/^Machine::Translate(int virtAddr, int* physAddr, int size, bool writing)$/;"	f	class:Machine
+WordToHost	machine/translate.cc	/^WordToHost(unsigned int word) {$/;"	f
+WordToMachine	machine/translate.cc	/^WordToMachine(unsigned int word) { return WordToHost(word); }$/;"	f
+WriteMem	machine/translate.cc	/^Machine::WriteMem(int addr, int size, int value)$/;"	f	class:Machine
+TLB_H	machine/translate.h	/^#define TLB_H$/;"	d
+TranslationEntry	machine/translate.h	/^class TranslationEntry {$/;"	c
+dirty	machine/translate.h	/^    bool dirty;         \/\/ This bit is set by the hardware every time the$/;"	m	class:TranslationEntry
+physicalPage	machine/translate.h	/^    int physicalPage;  	\/\/ The page number in real memory (relative to the$/;"	m	class:TranslationEntry
+readOnly	machine/translate.h	/^    bool readOnly;	\/\/ If this bit is set, the user program is not allowed$/;"	m	class:TranslationEntry
+use	machine/translate.h	/^    bool use;           \/\/ This bit is set by the hardware every time the$/;"	m	class:TranslationEntry
+valid	machine/translate.h	/^    bool valid;         \/\/ If this bit is set, the translation is ignored.$/;"	m	class:TranslationEntry
+virtualPage	machine/translate.h	/^    int virtualPage;  	\/\/ The page number in virtual memory.$/;"	m	class:TranslationEntry
+CFILES	network/Makefile	/^CFILES = $(THREAD_C) $(USERPROG_C) $(VM_C) $(FILESYS_C) $(NETWORK_C)$/;"	m
+C_OFILES	network/Makefile	/^C_OFILES = $(THREAD_O) $(USERPROG_O) $(VM_O) $(FILESYS_O) $(NETWORK_O)$/;"	m
+DEFINES	network/Makefile	/^DEFINES = -DUSER_PROGRAM -DVM -DFILESYS_NEEDED -DFILESYS -DNETWORK$/;"	m
+HFILES	network/Makefile	/^HFILES = $(THREAD_H) $(USERPROG_H) $(VM_H) $(FILESYS_H) $(NETWORK_H)$/;"	m
+INCPATH	network/Makefile	/^INCPATH = -I..\/network -I..\/bin -I..\/filesys -I..\/vm -I..\/userprog -I..\/threads -I..\/machine$/;"	m
+MailTest	network/nettest.cc	/^MailTest(int farAddr)$/;"	f
+Get	network/post.cc	/^MailBox::Get(PacketHeader *pktHdr, MailHeader *mailHdr, char *data) $/;"	f	class:MailBox
+IncomingPacket	network/post.cc	/^PostOffice::IncomingPacket()$/;"	f	class:PostOffice
+Mail	network/post.cc	/^Mail::Mail(PacketHeader pktH, MailHeader mailH, char *msgData)$/;"	f	class:Mail
+MailBox	network/post.cc	/^MailBox::MailBox()$/;"	f	class:MailBox
+PacketSent	network/post.cc	/^PostOffice::PacketSent()$/;"	f	class:PostOffice
+PostOffice	network/post.cc	/^PostOffice::PostOffice(NetworkAddress addr, double reliability, int nBoxes)$/;"	f	class:PostOffice
+PostalDelivery	network/post.cc	/^PostOffice::PostalDelivery()$/;"	f	class:PostOffice
+PostalHelper	network/post.cc	/^static void PostalHelper(int arg)$/;"	f	file:
+PrintHeader	network/post.cc	/^PrintHeader(PacketHeader pktHdr, MailHeader mailHdr)$/;"	f	file:
+Put	network/post.cc	/^MailBox::Put(PacketHeader pktHdr, MailHeader mailHdr, char *data)$/;"	f	class:MailBox
+ReadAvail	network/post.cc	/^static void ReadAvail(int arg)$/;"	f	file:
+Receive	network/post.cc	/^PostOffice::Receive(int box, PacketHeader *pktHdr, $/;"	f	class:PostOffice
+Send	network/post.cc	/^PostOffice::Send(PacketHeader pktHdr, MailHeader mailHdr, char* data)$/;"	f	class:PostOffice
+WriteDone	network/post.cc	/^static void WriteDone(int arg)$/;"	f	file:
+~MailBox	network/post.cc	/^MailBox::~MailBox()$/;"	f	class:MailBox
+~PostOffice	network/post.cc	/^PostOffice::~PostOffice()$/;"	f	class:PostOffice
+Mail	network/post.h	/^class Mail {$/;"	c
+MailBox	network/post.h	/^class MailBox {$/;"	c
+MailBoxAddress	network/post.h	/^typedef int MailBoxAddress;$/;"	t
+MailHeader	network/post.h	/^class MailHeader {$/;"	c
+MaxMailSize	network/post.h	/^#define MaxMailSize /;"	d
+POST_H	network/post.h	/^#define POST_H$/;"	d
+PostOffice	network/post.h	/^class PostOffice {$/;"	c
+boxes	network/post.h	/^    MailBox *boxes;		\/\/ Table of mail boxes to hold incoming mail$/;"	m	class:PostOffice
+data	network/post.h	/^     char data[MaxMailSize];	\/\/ Payload -- message data$/;"	m	class:Mail
+from	network/post.h	/^    MailBoxAddress from;	\/\/ Mail box to reply to$/;"	m	class:MailHeader
+length	network/post.h	/^    unsigned length;		\/\/ Bytes of message data (excluding the $/;"	m	class:MailHeader
+mailHdr	network/post.h	/^     MailHeader mailHdr;	\/\/ Header appended by PostOffice$/;"	m	class:Mail
+messageAvailable	network/post.h	/^    Semaphore *messageAvailable;\/\/ V'ed when message has arrived from network$/;"	m	class:PostOffice
+messageSent	network/post.h	/^    Semaphore *messageSent;	\/\/ V'ed when next message can be sent to network$/;"	m	class:PostOffice
+messages	network/post.h	/^    SynchList *messages;	\/\/ A mailbox is just a list of arrived messages$/;"	m	class:MailBox
+netAddr	network/post.h	/^    NetworkAddress netAddr;	\/\/ Network address of this machine$/;"	m	class:PostOffice
+network	network/post.h	/^    Network *network;		\/\/ Physical network connection$/;"	m	class:PostOffice
+numBoxes	network/post.h	/^    int numBoxes;		\/\/ Number of mail boxes$/;"	m	class:PostOffice
+pktHdr	network/post.h	/^     PacketHeader pktHdr;	\/\/ Header appended by Network$/;"	m	class:Mail
+sendLock	network/post.h	/^    Lock *sendLock;		\/\/ Only one outgoing message at a time$/;"	m	class:PostOffice
+to	network/post.h	/^    MailBoxAddress to;		\/\/ Destination mail box$/;"	m	class:MailHeader
+SWITCH	network/swtch.s	/^SWITCH:$/;"	l
+ThreadRoot	network/swtch.s	/^ThreadRoot:$/;"	l
+AS	test/Makefile	/^AS = $(GCCDIR)as$/;"	m
+ASFLAGS	test/Makefile	/^ASFLAGS = -mips2$/;"	m
+CC	test/Makefile	/^CC = $(GCCDIR)gcc -B..\/..\/..\/gnu-decstation-ultrix\/$/;"	m
+CFLAGS	test/Makefile	/^CFLAGS = -G 0 -c $(INCDIR)$/;"	m
+CPP	test/Makefile	/^CPP = gcc -E$/;"	m
+CPPFLAGS	test/Makefile	/^CPPFLAGS = $(INCDIR)$/;"	m
+GCCDIR	test/Makefile	/^GCCDIR = ..\/..\/..\/gnu-decstation-ultrix\/decstation-ultrix\/2.95.3\/$/;"	m
+INCDIR	test/Makefile	/^INCDIR =-I..\/userprog -I..\/threads$/;"	m
+LD	test/Makefile	/^LD = $(GCCDIR)ld$/;"	m
+LDFLAGS	test/Makefile	/^LDFLAGS = -T script -N$/;"	m
+PATH	test/Makefile	/^PATH = $(GCCDIR):\/lib:\/usr\/bin:\/bin$/;"	m
+main	test/halt.c	/^main()$/;"	f
+A	test/matmult.c	/^int A[Dim][Dim];$/;"	v
+B	test/matmult.c	/^int B[Dim][Dim];$/;"	v
+C	test/matmult.c	/^int C[Dim][Dim];$/;"	v
+Dim	test/matmult.c	/^#define Dim /;"	d	file:
+main	test/matmult.c	/^main()$/;"	f
+main	test/shell.c	/^main()$/;"	f
+A	test/sort.c	/^int A[1024];	\/* size of physical memory; with code, we'll run out of space!*\/$/;"	v
+main	test/sort.c	/^main()$/;"	f
+$0	test/start.c	/^	addiu $2,$0,SC_Close$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Create$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Exec$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Exit$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Fork$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Halt$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Join$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Open$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Read$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Write$/;"	v
+$0	test/start.c	/^	addiu $2,$0,SC_Yield$/;"	v
+IN_ASM	test/start.c	/^#define IN_ASM$/;"	d	file:
+Close	test/start.s	/^Close:$/;"	l
+Create	test/start.s	/^Create:$/;"	l
+Exec	test/start.s	/^Exec:$/;"	l
+Exit	test/start.s	/^Exit:$/;"	l
+Fork	test/start.s	/^Fork:$/;"	l
+Halt	test/start.s	/^Halt:$/;"	l
+IN_ASM	test/start.s	/^#define IN_ASM$/;"	d
+Join	test/start.s	/^Join:$/;"	l
+Open	test/start.s	/^Open:$/;"	l
+Read	test/start.s	/^Read:$/;"	l
+Write	test/start.s	/^Write:$/;"	l
+Yield	test/start.s	/^Yield:$/;"	l
+__main	test/start.s	/^__main:$/;"	l
+__start	test/start.s	/^__start:$/;"	l
+CFILES	threads/Makefile	/^CFILES = $(THREAD_C)$/;"	m
+C_OFILES	threads/Makefile	/^C_OFILES = $(THREAD_O)$/;"	m
+DEFINES	threads/Makefile	/^DEFINES = -DTHREADS$/;"	m
+HFILES	threads/Makefile	/^HFILES = $(THREAD_H)$/;"	m
+INCPATH	threads/Makefile	/^INCPATH = -I..\/threads -I..\/machine$/;"	m
+FALSE	threads/bool.h	/^#define FALSE /;"	d
+TRUE	threads/bool.h	/^#define TRUE /;"	d
+__NACHBOOL_H__	threads/bool.h	/^#define __NACHBOOL_H__ /;"	d
+copyright	threads/copyright.h	/^static char *copyright = "Copyright (c) 1992-1993 The Regents of the University of California.  All rights reserved.";$/;"	v
+Append	threads/list.cc	/^List::Append(void *item)$/;"	f	class:List
+IsEmpty	threads/list.cc	/^List::IsEmpty() $/;"	f	class:List
+List	threads/list.cc	/^List::List()$/;"	f	class:List
+ListElement	threads/list.cc	/^ListElement::ListElement(void *itemPtr, int sortKey)$/;"	f	class:ListElement
+Mapcar	threads/list.cc	/^List::Mapcar(VoidFunctionPtr func)$/;"	f	class:List
+Prepend	threads/list.cc	/^List::Prepend(void *item)$/;"	f	class:List
+Remove	threads/list.cc	/^List::Remove()$/;"	f	class:List
+SortedInsert	threads/list.cc	/^List::SortedInsert(void *item, int sortKey)$/;"	f	class:List
+SortedRemove	threads/list.cc	/^List::SortedRemove(int *keyPtr)$/;"	f	class:List
+~List	threads/list.cc	/^List::~List()$/;"	f	class:List
+LIST_H	threads/list.h	/^#define LIST_H$/;"	d
+List	threads/list.h	/^class List {$/;"	c
+ListElement	threads/list.h	/^class ListElement {$/;"	c
+first	threads/list.h	/^    ListElement *first;  	\/\/ Head of the list, NULL if list is empty$/;"	m	class:List
+item	threads/list.h	/^     void *item; 	    	\/\/ pointer to item on the list$/;"	m	class:ListElement
+key	threads/list.h	/^     int key;		    	\/\/ priority, for a sorted list$/;"	m	class:ListElement
+last	threads/list.h	/^    ListElement *last;		\/\/ Last element of list$/;"	m	class:List
+next	threads/list.h	/^     ListElement *next;		\/\/ next element on list, $/;"	m	class:ListElement
+MAIN	threads/main.cc	/^#define MAIN$/;"	d	file:
+MAIN	threads/main.cc	/^#undef MAIN$/;"	d	file:
+main	threads/main.cc	/^main(int argc, char **argv)$/;"	f
+FindNextToRun	threads/scheduler.cc	/^Scheduler::FindNextToRun ()$/;"	f	class:Scheduler
+Print	threads/scheduler.cc	/^Scheduler::Print()$/;"	f	class:Scheduler
+ReadyToRun	threads/scheduler.cc	/^Scheduler::ReadyToRun (Thread *thread)$/;"	f	class:Scheduler
+Run	threads/scheduler.cc	/^Scheduler::Run (Thread *nextThread)$/;"	f	class:Scheduler
+Scheduler	threads/scheduler.cc	/^Scheduler::Scheduler()$/;"	f	class:Scheduler
+~Scheduler	threads/scheduler.cc	/^Scheduler::~Scheduler()$/;"	f	class:Scheduler
+SCHEDULER_H	threads/scheduler.h	/^#define SCHEDULER_H$/;"	d
+Scheduler	threads/scheduler.h	/^class Scheduler {$/;"	c
+readyList	threads/scheduler.h	/^    List *readyList;  		\/\/ queue of threads that are ready to run,$/;"	m	class:Scheduler
+_ANSI_STDARG_H_	threads/stdarg.h	/^#define _ANSI_STDARG_H_$/;"	d
+_BSD_VA_LIST	threads/stdarg.h	/^#undef _BSD_VA_LIST$/;"	d
+_STDARG_H	threads/stdarg.h	/^#define _STDARG_H$/;"	d
+_VA_LIST	threads/stdarg.h	/^#define _VA_LIST /;"	d
+_VA_LIST	threads/stdarg.h	/^#define _VA_LIST$/;"	d
+_VA_LIST	threads/stdarg.h	/^#undef _VA_LIST$/;"	d
+_VA_LIST_	threads/stdarg.h	/^#define _VA_LIST_$/;"	d
+_VA_LIST_DEFINED	threads/stdarg.h	/^#define _VA_LIST_DEFINED$/;"	d
+_VA_LIST_T_H	threads/stdarg.h	/^#define _VA_LIST_T_H$/;"	d
+__GNUC_VA_LIST	threads/stdarg.h	/^#define __GNUC_VA_LIST$/;"	d
+__VA_LIST	threads/stdarg.h	/^#define __VA_LIST$/;"	d
+__gnuc_va_list	threads/stdarg.h	/^typedef char *__gnuc_va_list;$/;"	t
+__gnuc_va_list	threads/stdarg.h	/^typedef void *__gnuc_va_list;$/;"	t
+__need___va_list	threads/stdarg.h	/^#undef __need___va_list$/;"	d
+__va_copy	threads/stdarg.h	/^#define __va_copy(/;"	d
+__va_rounded_size	threads/stdarg.h	/^#define __va_rounded_size(/;"	d
+va_arg	threads/stdarg.h	/^#define va_arg(/;"	d
+va_end	threads/stdarg.h	/^#define va_end(/;"	d
+va_end	threads/stdarg.h	/^#undef va_end$/;"	d
+va_list	threads/stdarg.h	/^typedef __gnuc_va_list va_list;$/;"	t
+va_start	threads/stdarg.h	/^#define va_start(/;"	d
+SWITCH	threads/switch-old.s	/^SWITCH:$/;"	l
+ThreadRoot	threads/switch-old.s	/^ThreadRoot:$/;"	l
+ENTRY	threads/switch.c	/^	.EXPORT SWITCH,ENTRY,PRIV_LEV=3,RTNVAL=GR$/;"	v
+ENTRY	threads/switch.c	/^	.EXPORT ThreadRoot,ENTRY,PRIV_LEV=3,RTNVAL=GR$/;"	v
+InitialArg	threads/switch.c	/^	mov	InitialArg, %l1$/;"	v
+InitialPC	threads/switch.c	/^	mov	InitialPC, %l0  $/;"	v
+PRIV_LEV	threads/switch.c	/^	.EXPORT SWITCH,ENTRY,PRIV_LEV=3,RTNVAL=GR$/;"	v
+PRIV_LEV	threads/switch.c	/^	.EXPORT ThreadRoot,ENTRY,PRIV_LEV=3,RTNVAL=GR$/;"	v
+RTNVAL	threads/switch.c	/^	.EXPORT SWITCH,ENTRY,PRIV_LEV=3,RTNVAL=GR$/;"	v
+RTNVAL	threads/switch.c	/^	.EXPORT ThreadRoot,ENTRY,PRIV_LEV=3,RTNVAL=GR$/;"	v
+StartupPC	threads/switch.c	/^	call	StartupPC,0$/;"	v
+WhenDonePC	threads/switch.c	/^	mov	WhenDonePC, %l2$/;"	v
+_ASM	threads/switch.c	/^#define _ASM$/;"	d	file:
+_eax_save	threads/switch.c	/^        movl    _eax_save,%ebx          # get the saved value of eax$/;"	v
+a0	threads/switch.c	/^	move	a0, InitialArg$/;"	v
+a0	threads/switch.c	/^#define a0 /;"	d	file:
+a1	threads/switch.c	/^#define a1 /;"	d	file:
+counter	threads/switch.c	/^	stw  %rp, PC(%arg0)	;save program counter$/;"	v
+done	threads/switch.c	/^	jal 	WhenDonePC	# when were done, call clean up procedure$/;"	v
+ebp	threads/switch.c	/^        movl    %ebp,%esp$/;"	v
+ebp	threads/switch.c	/^        movl    %ebp,_EBP(%eax)$/;"	v
+ebx	threads/switch.c	/^        movl    %ebx,_EAX(%eax)         # store it$/;"	v
+ebx	threads/switch.c	/^        movl    %ebx,_EBX(%eax)         # save registers$/;"	v
+ecx	threads/switch.c	/^        movl    %ecx,_ECX(%eax)$/;"	v
+edi	threads/switch.c	/^        movl    %edi,_EDI(%eax)$/;"	v
+edx	threads/switch.c	/^        movl    %edx,_EDX(%eax)$/;"	v
+esi	threads/switch.c	/^        movl    %esi,_ESI(%eax)$/;"	v
+esp	threads/switch.c	/^        movl    %esp,_ESP(%eax)         # save stack pointer$/;"	v
+fp	threads/switch.c	/^	or	fp,z,z		# Clearing the frame pointer here$/;"	v
+fp	threads/switch.c	/^	st	%fp, [%i0]$/;"	v
+fp	threads/switch.c	/^#define fp /;"	d	file:
+i0	threads/switch.c	/^	st	%i0, [%i0+I0]$/;"	v
+i1	threads/switch.c	/^	mov	%i1, %l0$/;"	v
+i1	threads/switch.c	/^	st	%i1, [%i0+I1]$/;"	v
+i2	threads/switch.c	/^	st	%i2, [%i0+I2]$/;"	v
+i3	threads/switch.c	/^	st	%i3, [%i0+I3]$/;"	v
+i4	threads/switch.c	/^	st	%i4, [%i0+I4]$/;"	v
+i5	threads/switch.c	/^	st	%i5, [%i0+I5]$/;"	v
+i7	threads/switch.c	/^	st	%i7, [%i0+I7]$/;"	v
+l0	threads/switch.c	/^	call	%l0, 1	$/;"	v
+l1	threads/switch.c	/^	mov	%l1, %o0   \/* Using delay slot to setup argument to InitialPC *\/$/;"	v
+l2	threads/switch.c	/^	call	%l2, 0$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I0], %i0$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I1], %i1$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I2], %i2$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I3], %i3$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I4], %i4$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I5], %i5$/;"	v
+ld	threads/switch.c	/^	ld	[%l0+I7], %i7$/;"	v
+ld	threads/switch.c	/^	ld	[%l0], %i6$/;"	v
+r10	threads/switch.c	/^	stw  %r10, S7(%arg0)$/;"	v
+r11	threads/switch.c	/^	stw  %r11, S8(%arg0)$/;"	v
+r12	threads/switch.c	/^	stw  %r12, S9(%arg0)$/;"	v
+r13	threads/switch.c	/^	stw  %r13, S10(%arg0)$/;"	v
+r14	threads/switch.c	/^	stw  %r14, S11(%arg0)$/;"	v
+r15	threads/switch.c	/^	stw  %r15, S12(%arg0)$/;"	v
+r16	threads/switch.c	/^	stw  %r16, S13(%arg0)$/;"	v
+r17	threads/switch.c	/^	stw  %r17, S14(%arg0)$/;"	v
+r18	threads/switch.c	/^	stw  %r18, S15(%arg0)$/;"	v
+r3	threads/switch.c	/^	stw  %r3, S0(%arg0)	;save callee-save registers$/;"	v
+r31	threads/switch.c	/^	or   %r31, 0, %rp	;put return address in proper register$/;"	v
+r5	threads/switch.c	/^	stw  %r5, S2(%arg0)$/;"	v
+r6	threads/switch.c	/^	stw  %r6, S3(%arg0)$/;"	v
+r7	threads/switch.c	/^	stw  %r7, S4(%arg0)$/;"	v
+r8	threads/switch.c	/^	stw  %r8, S5(%arg0)$/;"	v
+r9	threads/switch.c	/^	stw  %r9, S6(%arg0)$/;"	v
+ra	threads/switch.c	/^#define ra /;"	d	file:
+restore	threads/switch.c	/^	restore$/;"	v
+rp	threads/switch.c	/^	or   %r31, 0, %rp	;put return address in proper register$/;"	v
+rp	threads/switch.c	/^	stw  %rp, PC(%arg0)	;save program counter$/;"	v
+s0	threads/switch.c	/^#define s0 /;"	d	file:
+s1	threads/switch.c	/^#define s1 /;"	d	file:
+s2	threads/switch.c	/^#define s2 /;"	d	file:
+s3	threads/switch.c	/^#define s3 /;"	d	file:
+s4	threads/switch.c	/^#define s4 /;"	d	file:
+s5	threads/switch.c	/^#define s5 /;"	d	file:
+s6	threads/switch.c	/^#define s6 /;"	d	file:
+s7	threads/switch.c	/^#define s7 /;"	d	file:
+sp	threads/switch.c	/^	sw	sp, SP(a0)		# save new stack pointer$/;"	v
+sp	threads/switch.c	/^#define sp /;"	d	file:
+z	threads/switch.c	/^	or	fp,z,z		# Clearing the frame pointer here$/;"	v
+z	threads/switch.c	/^#define z /;"	d	file:
+FP	threads/switch.h	/^#define FP /;"	d
+FPState	threads/switch.h	/^#define FPState	/;"	d
+FPState	threads/switch.h	/^#define FPState /;"	d
+I0	threads/switch.h	/^#define I0 /;"	d
+I1	threads/switch.h	/^#define I1 /;"	d
+I2	threads/switch.h	/^#define I2 /;"	d
+I3	threads/switch.h	/^#define I3 /;"	d
+I4	threads/switch.h	/^#define I4 /;"	d
+I5	threads/switch.h	/^#define I5 /;"	d
+I6	threads/switch.h	/^#define I6 /;"	d
+I7	threads/switch.h	/^#define I7 /;"	d
+InitialArg	threads/switch.h	/^#define InitialArg	/;"	d
+InitialArg	threads/switch.h	/^#define InitialArg /;"	d
+InitialArgState	threads/switch.h	/^#define InitialArgState	/;"	d
+InitialArgState	threads/switch.h	/^#define InitialArgState /;"	d
+InitialPC	threads/switch.h	/^#define InitialPC	/;"	d
+InitialPC	threads/switch.h	/^#define InitialPC /;"	d
+InitialPCState	threads/switch.h	/^#define InitialPCState	/;"	d
+InitialPCState	threads/switch.h	/^#define InitialPCState /;"	d
+PC	threads/switch.h	/^#define   PC /;"	d
+PC	threads/switch.h	/^#define PC /;"	d
+PCState	threads/switch.h	/^#define PCState	/;"	d
+PCState	threads/switch.h	/^#define PCState /;"	d
+S0	threads/switch.h	/^#define   S0 /;"	d
+S0	threads/switch.h	/^#define S0 /;"	d
+S1	threads/switch.h	/^#define   S1 /;"	d
+S1	threads/switch.h	/^#define S1 /;"	d
+S10	threads/switch.h	/^#define   S10 /;"	d
+S11	threads/switch.h	/^#define   S11 /;"	d
+S12	threads/switch.h	/^#define   S12 /;"	d
+S13	threads/switch.h	/^#define   S13 /;"	d
+S14	threads/switch.h	/^#define   S14 /;"	d
+S15	threads/switch.h	/^#define   S15 /;"	d
+S2	threads/switch.h	/^#define   S2 /;"	d
+S2	threads/switch.h	/^#define S2 /;"	d
+S3	threads/switch.h	/^#define   S3 /;"	d
+S3	threads/switch.h	/^#define S3 /;"	d
+S4	threads/switch.h	/^#define   S4 /;"	d
+S4	threads/switch.h	/^#define S4 /;"	d
+S5	threads/switch.h	/^#define   S5 /;"	d
+S5	threads/switch.h	/^#define S5 /;"	d
+S6	threads/switch.h	/^#define   S6 /;"	d
+S6	threads/switch.h	/^#define S6 /;"	d
+S7	threads/switch.h	/^#define   S7 /;"	d
+S7	threads/switch.h	/^#define S7 /;"	d
+S8	threads/switch.h	/^#define   S8 /;"	d
+S9	threads/switch.h	/^#define   S9 /;"	d
+SP	threads/switch.h	/^#define   SP /;"	d
+SP	threads/switch.h	/^#define SP /;"	d
+SWITCH_H	threads/switch.h	/^#define SWITCH_H$/;"	d
+StartupPC	threads/switch.h	/^#define StartupPC	/;"	d
+StartupPC	threads/switch.h	/^#define StartupPC /;"	d
+StartupPCState	threads/switch.h	/^#define StartupPCState	/;"	d
+StartupPCState	threads/switch.h	/^#define StartupPCState /;"	d
+WhenDonePC	threads/switch.h	/^#define WhenDonePC	/;"	d
+WhenDonePC	threads/switch.h	/^#define WhenDonePC /;"	d
+WhenDonePCState	threads/switch.h	/^#define WhenDonePCState	/;"	d
+WhenDonePCState	threads/switch.h	/^#define WhenDonePCState /;"	d
+_EAX	threads/switch.h	/^#define _EAX /;"	d
+_EBP	threads/switch.h	/^#define _EBP /;"	d
+_EBX	threads/switch.h	/^#define _EBX /;"	d
+_ECX	threads/switch.h	/^#define _ECX /;"	d
+_EDI	threads/switch.h	/^#define _EDI /;"	d
+_EDX	threads/switch.h	/^#define _EDX /;"	d
+_ESI	threads/switch.h	/^#define _ESI /;"	d
+_ESP	threads/switch.h	/^#define _ESP /;"	d
+_PC	threads/switch.h	/^#define _PC /;"	d
+SWITCH	threads/switch.s	/^SWITCH$/;"	l
+SWITCH	threads/switch.s	/^SWITCH:$/;"	l
+ThreadRoot	threads/switch.s	/^ThreadRoot$/;"	l
+ThreadRoot	threads/switch.s	/^ThreadRoot:$/;"	l
+_ASM	threads/switch.s	/^#define _ASM$/;"	d
+a0	threads/switch.s	/^#define a0      $4      \/* argument registers *\/$/;"	d
+a1	threads/switch.s	/^#define a1      $5$/;"	d
+fp	threads/switch.s	/^#define fp      $30     \/* frame pointer *\/$/;"	d
+ra	threads/switch.s	/^#define ra      $31     \/* return address *\/$/;"	d
+s0	threads/switch.s	/^#define s0      $16     \/* callee saved *\/$/;"	d
+s1	threads/switch.s	/^#define s1      $17$/;"	d
+s2	threads/switch.s	/^#define s2      $18$/;"	d
+s3	threads/switch.s	/^#define s3      $19$/;"	d
+s4	threads/switch.s	/^#define s4      $20$/;"	d
+s5	threads/switch.s	/^#define s5      $21$/;"	d
+s6	threads/switch.s	/^#define s6      $22$/;"	d
+s7	threads/switch.s	/^#define s7      $23$/;"	d
+sp	threads/switch.s	/^#define sp      $29     \/* stack pointer *\/$/;"	d
+z	threads/switch.s	/^#define z       $0      \/* zero register *\/$/;"	d
+SWITCH	threads/swtch.s	/^SWITCH:$/;"	l
+ThreadRoot	threads/swtch.s	/^ThreadRoot:$/;"	l
+Acquire	threads/synch.cc	/^void Lock::Acquire() {}$/;"	f	class:Lock
+Broadcast	threads/synch.cc	/^void Condition::Broadcast(Lock* conditionLock) { }$/;"	f	class:Condition
+Condition	threads/synch.cc	/^Condition::Condition(char* debugName) { }$/;"	f	class:Condition
+Lock	threads/synch.cc	/^Lock::Lock(char* debugName) {}$/;"	f	class:Lock
+P	threads/synch.cc	/^Semaphore::P()$/;"	f	class:Semaphore
+Release	threads/synch.cc	/^void Lock::Release() {}$/;"	f	class:Lock
+Semaphore	threads/synch.cc	/^Semaphore::Semaphore(char* debugName, int initialValue)$/;"	f	class:Semaphore
+Signal	threads/synch.cc	/^void Condition::Signal(Lock* conditionLock) { }$/;"	f	class:Condition
+V	threads/synch.cc	/^Semaphore::V()$/;"	f	class:Semaphore
+Wait	threads/synch.cc	/^void Condition::Wait(Lock* conditionLock) { ASSERT(FALSE); }$/;"	f	class:Condition
+~Condition	threads/synch.cc	/^Condition::~Condition() { }$/;"	f	class:Condition
+~Lock	threads/synch.cc	/^Lock::~Lock() {}$/;"	f	class:Lock
+~Semaphore	threads/synch.cc	/^Semaphore::~Semaphore()$/;"	f	class:Semaphore
+Condition	threads/synch.h	/^class Condition {$/;"	c
+Lock	threads/synch.h	/^class Lock {$/;"	c
+SYNCH_H	threads/synch.h	/^#define SYNCH_H$/;"	d
+Semaphore	threads/synch.h	/^class Semaphore {$/;"	c
+getName	threads/synch.h	/^    char* getName() { return (name); }$/;"	f	class:Condition
+getName	threads/synch.h	/^    char* getName() { return name; }	\/\/ debugging assist$/;"	f	class:Lock
+getName	threads/synch.h	/^    char* getName() { return name;}			\/\/ debugging assist$/;"	f	class:Semaphore
+name	threads/synch.h	/^    char* name;				\/\/ for debugging$/;"	m	class:Lock
+name	threads/synch.h	/^    char* name;        \/\/ useful for debugging$/;"	m	class:Semaphore
+name	threads/synch.h	/^    char* name;$/;"	m	class:Condition
+queue	threads/synch.h	/^    List *queue;       \/\/ threads waiting in P() for the value to be > 0$/;"	m	class:Semaphore
+value	threads/synch.h	/^    int value;         \/\/ semaphore value, always >= 0$/;"	m	class:Semaphore
+Append	threads/synchlist.cc	/^SynchList::Append(void *item)$/;"	f	class:SynchList
+Mapcar	threads/synchlist.cc	/^SynchList::Mapcar(VoidFunctionPtr func)$/;"	f	class:SynchList
+Remove	threads/synchlist.cc	/^SynchList::Remove()$/;"	f	class:SynchList
+SynchList	threads/synchlist.cc	/^SynchList::SynchList()$/;"	f	class:SynchList
+~SynchList	threads/synchlist.cc	/^SynchList::~SynchList()$/;"	f	class:SynchList
+SYNCHLIST_H	threads/synchlist.h	/^#define SYNCHLIST_H$/;"	d
+SynchList	threads/synchlist.h	/^class SynchList {$/;"	c
+list	threads/synchlist.h	/^    List *list;			\/\/ the unsynchronized list$/;"	m	class:SynchList
+listEmpty	threads/synchlist.h	/^    Condition *listEmpty;	\/\/ wait in Remove if the list is empty$/;"	m	class:SynchList
+lock	threads/synchlist.h	/^    Lock *lock;			\/\/ enforce mutual exclusive access to the list$/;"	m	class:SynchList
+Cleanup	threads/system.cc	/^Cleanup()$/;"	f
+Initialize	threads/system.cc	/^Initialize(int argc, char **argv)$/;"	f
+TimerInterruptHandler	threads/system.cc	/^TimerInterruptHandler(int dummy)$/;"	f	file:
+currentThread	threads/system.cc	/^Thread *currentThread;			\/\/ the thread we are running now$/;"	v
+fileSystem	threads/system.cc	/^FileSystem  *fileSystem;$/;"	v
+interrupt	threads/system.cc	/^Interrupt *interrupt;			\/\/ interrupt status$/;"	v
+machine	threads/system.cc	/^Machine *machine;	\/\/ user program memory and registers$/;"	v
+postOffice	threads/system.cc	/^PostOffice *postOffice;$/;"	v
+scheduler	threads/system.cc	/^Scheduler *scheduler;			\/\/ the ready list$/;"	v
+stats	threads/system.cc	/^Statistics *stats;			\/\/ performance metrics$/;"	v
+synchDisk	threads/system.cc	/^SynchDisk   *synchDisk;$/;"	v
+threadToBeDestroyed	threads/system.cc	/^Thread *threadToBeDestroyed;  		\/\/ the thread that just finished$/;"	v
+timer	threads/system.cc	/^Timer *timer;				\/\/ the hardware timer device,$/;"	v
+SYSTEM_H	threads/system.h	/^#define SYSTEM_H$/;"	d
+CheckOverflow	threads/thread.cc	/^Thread::CheckOverflow()$/;"	f	class:Thread
+Finish	threads/thread.cc	/^Thread::Finish ()$/;"	f	class:Thread
+Fork	threads/thread.cc	/^Thread::Fork(VoidFunctionPtr func, int arg)$/;"	f	class:Thread
+InterruptEnable	threads/thread.cc	/^static void InterruptEnable() { interrupt->Enable(); }$/;"	f	file:
+RestoreUserState	threads/thread.cc	/^Thread::RestoreUserState()$/;"	f	class:Thread
+STACK_FENCEPOST	threads/thread.cc	/^#define STACK_FENCEPOST /;"	d	file:
+SaveUserState	threads/thread.cc	/^Thread::SaveUserState()$/;"	f	class:Thread
+Sleep	threads/thread.cc	/^Thread::Sleep ()$/;"	f	class:Thread
+StackAllocate	threads/thread.cc	/^Thread::StackAllocate (VoidFunctionPtr func, int arg)$/;"	f	class:Thread
+Thread	threads/thread.cc	/^Thread::Thread(char* threadName)$/;"	f	class:Thread
+ThreadFinish	threads/thread.cc	/^static void ThreadFinish()    { currentThread->Finish(); }$/;"	f	file:
+ThreadPrint	threads/thread.cc	/^void ThreadPrint(int arg){ Thread *t = (Thread *)arg; t->Print(); }$/;"	f
+Yield	threads/thread.cc	/^Thread::Yield ()$/;"	f	class:Thread
+~Thread	threads/thread.cc	/^Thread::~Thread()$/;"	f	class:Thread
+BLOCKED	threads/thread.h	/^enum ThreadStatus { JUST_CREATED, RUNNING, READY, BLOCKED };$/;"	e	enum:ThreadStatus
+JUST_CREATED	threads/thread.h	/^enum ThreadStatus { JUST_CREATED, RUNNING, READY, BLOCKED };$/;"	e	enum:ThreadStatus
+MachineStateSize	threads/thread.h	/^#define MachineStateSize /;"	d
+Print	threads/thread.h	/^    void Print() { printf("%s, ", name); }$/;"	f	class:Thread
+READY	threads/thread.h	/^enum ThreadStatus { JUST_CREATED, RUNNING, READY, BLOCKED };$/;"	e	enum:ThreadStatus
+RUNNING	threads/thread.h	/^enum ThreadStatus { JUST_CREATED, RUNNING, READY, BLOCKED };$/;"	e	enum:ThreadStatus
+StackSize	threads/thread.h	/^#define StackSize	/;"	d
+THREAD_H	threads/thread.h	/^#define THREAD_H$/;"	d
+Thread	threads/thread.h	/^class Thread {$/;"	c
+ThreadStatus	threads/thread.h	/^enum ThreadStatus { JUST_CREATED, RUNNING, READY, BLOCKED };$/;"	g
+getName	threads/thread.h	/^    char* getName() { return (name); }$/;"	f	class:Thread
+machineState	threads/thread.h	/^    int machineState[MachineStateSize];  \/\/ all registers except for stackTop$/;"	m	class:Thread
+name	threads/thread.h	/^    char* name;$/;"	m	class:Thread
+setStatus	threads/thread.h	/^    void setStatus(ThreadStatus st) { status = st; }$/;"	f	class:Thread
+space	threads/thread.h	/^    AddrSpace *space;			\/\/ User code this thread is running.$/;"	m	class:Thread
+stack	threads/thread.h	/^    int* stack; 	 		\/\/ Bottom of the stack $/;"	m	class:Thread
+stackTop	threads/thread.h	/^    int* stackTop;			 \/\/ the current stack pointer$/;"	m	class:Thread
+status	threads/thread.h	/^    ThreadStatus status;		\/\/ ready, running or blocked$/;"	m	class:Thread
+userRegisters	threads/thread.h	/^    int userRegisters[NumTotalRegs];	\/\/ user-level CPU register state$/;"	m	class:Thread
+SimpleThread	threads/threadtest.cc	/^SimpleThread(int which)$/;"	f
+ThreadTest	threads/threadtest.cc	/^ThreadTest()$/;"	f
+ThreadTest1	threads/threadtest.cc	/^ThreadTest1()$/;"	f
+testnum	threads/threadtest.cc	/^int testnum = 1;$/;"	v
+DEBUG	threads/utility.cc	/^DEBUG(char flag, char *format, ...)$/;"	f
+DebugInit	threads/utility.cc	/^DebugInit(char *flagList)$/;"	f
+DebugIsEnabled	threads/utility.cc	/^DebugIsEnabled(char flag)$/;"	f
+enableFlags	threads/utility.cc	/^static char *enableFlags = NULL; \/\/ controls which DEBUG messages are printed $/;"	v	file:
+ASSERT	threads/utility.h	/^#define ASSERT(/;"	d
+UTILITY_H	threads/utility.h	/^#define UTILITY_H$/;"	d
+VoidFunctionPtr	threads/utility.h	/^typedef void (*VoidFunctionPtr)(int arg); $/;"	t
+VoidNoArgFunctionPtr	threads/utility.h	/^typedef void (*VoidNoArgFunctionPtr)(); $/;"	t
+divRoundDown	threads/utility.h	/^#define divRoundDown(/;"	d
+divRoundUp	threads/utility.h	/^#define divRoundUp(/;"	d
+max	threads/utility.h	/^#define max(/;"	d
+min	threads/utility.h	/^#define min(/;"	d
+CFILES	userprog/Makefile	/^CFILES = $(THREAD_C) $(USERPROG_C)$/;"	m
+C_OFILES	userprog/Makefile	/^C_OFILES = $(THREAD_O) $(USERPROG_O)$/;"	m
+DEFINES	userprog/Makefile	/^DEFINES = -DUSER_PROGRAM -DFILESYS_NEEDED -DFILESYS_STUB$/;"	m
+HFILES	userprog/Makefile	/^HFILES = $(THREAD_H) $(USERPROG_H)$/;"	m
+INCPATH	userprog/Makefile	/^INCPATH = -I..\/bin -I..\/filesys -I..\/userprog -I..\/threads -I..\/machine$/;"	m
+AddrSpace	userprog/addrspace.cc	/^AddrSpace::AddrSpace(OpenFile *executable)$/;"	f	class:AddrSpace
+InitRegisters	userprog/addrspace.cc	/^AddrSpace::InitRegisters()$/;"	f	class:AddrSpace
+RestoreState	userprog/addrspace.cc	/^void AddrSpace::RestoreState() $/;"	f	class:AddrSpace
+SaveState	userprog/addrspace.cc	/^void AddrSpace::SaveState() $/;"	f	class:AddrSpace
+SwapHeader	userprog/addrspace.cc	/^SwapHeader (NoffHeader *noffH)$/;"	f	file:
+~AddrSpace	userprog/addrspace.cc	/^AddrSpace::~AddrSpace()$/;"	f	class:AddrSpace
+ADDRSPACE_H	userprog/addrspace.h	/^#define ADDRSPACE_H$/;"	d
+AddrSpace	userprog/addrspace.h	/^class AddrSpace {$/;"	c
+UserStackSize	userprog/addrspace.h	/^#define UserStackSize	/;"	d
+numPages	userprog/addrspace.h	/^    unsigned int numPages;		\/\/ Number of pages in the virtual $/;"	m	class:AddrSpace
+pageTable	userprog/addrspace.h	/^    TranslationEntry *pageTable;	\/\/ Assume linear page table translation$/;"	m	class:AddrSpace
+BitMap	userprog/bitmap.cc	/^BitMap::BitMap(int nitems) $/;"	f	class:BitMap
+Clear	userprog/bitmap.cc	/^BitMap::Clear(int which) $/;"	f	class:BitMap
+FetchFrom	userprog/bitmap.cc	/^BitMap::FetchFrom(OpenFile *file) $/;"	f	class:BitMap
+Find	userprog/bitmap.cc	/^BitMap::Find() $/;"	f	class:BitMap
+Mark	userprog/bitmap.cc	/^BitMap::Mark(int which) $/;"	f	class:BitMap
+NumClear	userprog/bitmap.cc	/^BitMap::NumClear() $/;"	f	class:BitMap
+Print	userprog/bitmap.cc	/^BitMap::Print() $/;"	f	class:BitMap
+Test	userprog/bitmap.cc	/^BitMap::Test(int which)$/;"	f	class:BitMap
+WriteBack	userprog/bitmap.cc	/^BitMap::WriteBack(OpenFile *file)$/;"	f	class:BitMap
+~BitMap	userprog/bitmap.cc	/^BitMap::~BitMap()$/;"	f	class:BitMap
+BITMAP_H	userprog/bitmap.h	/^#define BITMAP_H$/;"	d
+BitMap	userprog/bitmap.h	/^class BitMap {$/;"	c
+BitsInByte	userprog/bitmap.h	/^#define BitsInByte /;"	d
+BitsInWord	userprog/bitmap.h	/^#define BitsInWord /;"	d
+map	userprog/bitmap.h	/^    unsigned int *map;			\/\/ bit storage$/;"	m	class:BitMap
+numBits	userprog/bitmap.h	/^    int numBits;			\/\/ number of bits in the bitmap$/;"	m	class:BitMap
+numWords	userprog/bitmap.h	/^    int numWords;			\/\/ number of words of bitmap storage$/;"	m	class:BitMap
+ExceptionHandler	userprog/exception.cc	/^ExceptionHandler(ExceptionType which)$/;"	f
+ConsoleTest	userprog/progtest.cc	/^ConsoleTest (char *in, char *out)$/;"	f
+ReadAvail	userprog/progtest.cc	/^static void ReadAvail(int arg) { readAvail->V(); }$/;"	f	file:
+StartProcess	userprog/progtest.cc	/^StartProcess(char *filename)$/;"	f
+WriteDone	userprog/progtest.cc	/^static void WriteDone(int arg) { writeDone->V(); }$/;"	f	file:
+console	userprog/progtest.cc	/^static Console *console;$/;"	v	file:
+readAvail	userprog/progtest.cc	/^static Semaphore *readAvail;$/;"	v	file:
+writeDone	userprog/progtest.cc	/^static Semaphore *writeDone;$/;"	v	file:
+SWITCH	userprog/swtch.s	/^SWITCH:$/;"	l
+ThreadRoot	userprog/swtch.s	/^ThreadRoot:$/;"	l
+ConsoleInput	userprog/syscall.h	/^#define ConsoleInput	/;"	d
+ConsoleOutput	userprog/syscall.h	/^#define ConsoleOutput	/;"	d
+OpenFileId	userprog/syscall.h	/^typedef int OpenFileId;	$/;"	t
+SC_Close	userprog/syscall.h	/^#define SC_Close	/;"	d
+SC_Create	userprog/syscall.h	/^#define SC_Create	/;"	d
+SC_Exec	userprog/syscall.h	/^#define SC_Exec	/;"	d
+SC_Exit	userprog/syscall.h	/^#define SC_Exit	/;"	d
+SC_Fork	userprog/syscall.h	/^#define SC_Fork	/;"	d
+SC_Halt	userprog/syscall.h	/^#define SC_Halt	/;"	d
+SC_Join	userprog/syscall.h	/^#define SC_Join	/;"	d
+SC_Open	userprog/syscall.h	/^#define SC_Open	/;"	d
+SC_Read	userprog/syscall.h	/^#define SC_Read	/;"	d
+SC_Write	userprog/syscall.h	/^#define SC_Write	/;"	d
+SC_Yield	userprog/syscall.h	/^#define SC_Yield	/;"	d
+SYSCALLS_H	userprog/syscall.h	/^#define SYSCALLS_H$/;"	d
+SpaceId	userprog/syscall.h	/^typedef int SpaceId;	$/;"	t
+CFILES	vm/Makefile	/^CFILES = $(THREAD_C) $(USERPROG_C) $(VM_C)$/;"	m
+C_OFILES	vm/Makefile	/^C_OFILES = $(THREAD_O) $(USERPROG_O) $(VM_O)$/;"	m
+DEFINES	vm/Makefile	/^DEFINES = -DUSER_PROGRAM  -DFILESYS_NEEDED -DFILESYS_STUB -DVM -DUSE_TLB$/;"	m
+HFILES	vm/Makefile	/^HFILES = $(THREAD_H) $(USERPROG_H) $(VM_H)$/;"	m
+INCPATH	vm/Makefile	/^INCPATH = -I..\/filesys -I..\/bin -I..\/vm -I..\/userprog -I..\/threads -I..\/machine$/;"	m
+SWITCH	vm/swtch.s	/^SWITCH:$/;"	l
+ThreadRoot	vm/swtch.s	/^ThreadRoot:$/;"	l

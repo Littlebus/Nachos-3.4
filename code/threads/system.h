@@ -16,6 +16,12 @@
 #include "stats.h"
 #include "timer.h"
 
+//	modified by Oscar
+extern int currentTid;
+extern bool tidList[MaxThread];
+extern Thread* tid_pointer[MaxThread];
+//	end modified
+
 // Initialization and cleanup routines
 extern void Initialize(int argc, char **argv); 	// Initialization,
 						// called before anything else

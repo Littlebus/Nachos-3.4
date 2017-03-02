@@ -64,6 +64,8 @@ extern void Print(char *file), PerformanceTest(void);
 extern void StartProcess(char *file), ConsoleTest(char *in, char *out);
 extern void MailTest(int networkID);
 extern void SimpleThread(int which);
+extern void ThreadTest1();
+extern void TS();
 //----------------------------------------------------------------------
 // main
 // 	Bootstrap the operating system kernel.  
@@ -95,12 +97,23 @@ main(int argc, char **argv)
         testnum = atoi(argv[1]);
         argCount++;
         break;
+      //	modified by Oscar
+      case 't':
+      case 'T':
+      	TS();
+      	break;
+      //	end modified
       default:
         testnum = 1;
         break;
       }
     }
-    SimpleThread(0);
+    // for (int i = 0; i < 130; ++i)
+    // {
+    // 	ThreadTest1();
+    // }
+    
+    // SimpleThread(0);
     // ThreadTest();
 #endif
 //command lines parse of THREADS
@@ -158,7 +171,7 @@ main(int argc, char **argv)
         }
 #endif // NETWORK
     }
-    // ThreadTest1();
+    ThreadTest();
     currentThread->Finish();	// NOTE: if the procedure "main" 
 				// returns, then the program "nachos"
 				// will exit (as any other normal program

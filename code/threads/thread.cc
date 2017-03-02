@@ -31,9 +31,86 @@
 //
 //	"threadName" is an arbitrary string, useful for debugging.
 //----------------------------------------------------------------------
-//构造函数，
+
+//  modified by Oscar
+// int
+// Thread::nexttid()
+// {   
+//     int ttid = currentTid;
+//     while(currentTid > MaxThread || tidList[currentTid])
+//     {
+//         ++currentTid;
+//         if(currentTid > MaxThread)
+//         {
+//             currentTid = 1;
+//         }
+//         // if(ttid == currentTid)
+//             //run out of threads
+//     }
+//     tid = currentTid++;
+// }
+// 写了两种tid的方式，注释掉的是类unix系统的实现方式，但是限制为128，故每次从头扫描
+int
+nexttid()
+{
+    for (int i = 0; i < MaxThread; ++i)
+    {
+        if (!tidList[i])
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int
+Thread::getTid()
+{
+    return this->tid;
+}
+
+int
+Thread::getUid()
+{
+    return this->uid;
+}
+
+//----------------------------------------------------------------------
+// Thread::createThread
+//  create new thread
+//
+//  NOTE: cannot create new thread by createThread() for we need to
+//  check max threads.
+//----------------------------------------------------------------------
+
+Thread*
+Thread::createThread(char* threadName)
+{
+    if(nexttid() == -1)
+    {
+        printf("Can't create more threads!\n");
+        return NULL;
+    }
+    else
+    {
+        Thread* t = new Thread(threadName);
+        printf("create thread no.%d %s successfully!\n", t->getTid(),threadName);
+        return t;
+    }
+}
+//  end modified
+
+
 Thread::Thread(char* threadName)
 {
+    //  modified by Oscar
+    this->tid = nexttid();
+    tidList[this->tid] = true;
+    tid_pointer[this->tid] = this;
+    this->uid = 233;
+    //  end modified
+
+
     name = threadName;
     stackTop = NULL;
     stack = NULL;
@@ -58,7 +135,10 @@ Thread::Thread(char* threadName)
 Thread::~Thread()
 {
     DEBUG('t', "Deleting thread \"%s\"\n", name);
-
+    //  modified by Oscar
+    tidList[this->tid] = false;
+    tid_pointer[this->tid] = NULL;
+    //  end modified
     ASSERT(this != currentThread);
     if (stack != NULL)
 	DeallocBoundedArray((char *) stack, StackSize * sizeof(int));
@@ -83,6 +163,8 @@ Thread::~Thread()
 //	"func" is the procedure to run concurrently.
 //	"arg" is a single argument to be passed to the procedure.
 //----------------------------------------------------------------------
+
+//Fork 类似 linux的exec。
 
 void 
 Thread::Fork(VoidFunctionPtr func, int arg)

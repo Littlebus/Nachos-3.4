@@ -34,7 +34,7 @@ SimpleThread(int which)
     int num;
     
     for (num = 0; num < 5; num++) {
-	printf("*** thread %d looped %d times\n", which, num);
+	printf("*** thread %d looped %d times\n", currentThread->getTid(), num);
         currentThread->Yield();
     }
 }
@@ -45,17 +45,32 @@ SimpleThread(int which)
 //	to call SimpleThread, and then calling SimpleThread ourselves.
 //----------------------------------------------------------------------
 
+//  modified by Oscar
+void
+TS()
+{
+    printf("---------------Call TS---------------\n");
+    for (int i = 0; i < 128; ++i)
+    {
+        if (tidList[i])
+        {
+            printf("tid: %d, thread name: %s.\n", tid_pointer[i]->getTid(), tid_pointer[i]->getName());
+        }
+    }
+    printf("-------------------------------------\n");
+}
 
 void
 ThreadTest1()
 {
     DEBUG('t', "Entering ThreadTest1");
 
-    Thread *t = new Thread("forked thread");
+    Thread *t = Thread::createThread("forked thread");
 
     t->Fork(SimpleThread, 1);
     SimpleThread(0);
 }
+
 
 //----------------------------------------------------------------------
 // ThreadTest
@@ -70,6 +85,12 @@ ThreadTest()
 	ThreadTest1();
 	break;
     default:
+    for (int i = 0; i < testnum; ++i)
+    {
+            Thread *t = Thread::createThread("forked thread");
+            if(t)
+            t->Fork(SimpleThread, 1);
+    }
 	printf("No test specified.\n");
 	break;
     }

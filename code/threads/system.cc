@@ -19,6 +19,12 @@ Statistics *stats;			// performance metrics
 Timer *timer;				// the hardware timer device,
 					// for invoking context switches
 
+//  modified by Oscar
+int currentTid;
+bool tidList[MaxThread];
+Thread* tid_pointer[MaxThread];
+//  end modified
+
 #ifdef FILESYS_NEEDED
 FileSystem  *fileSystem;
 #endif
@@ -77,6 +83,15 @@ TimerInterruptHandler(int dummy)
 void
 Initialize(int argc, char **argv)
 {
+    //  modified by Oscar
+    for (int i = 0; i < MaxThread; ++i)
+    {
+        tidList[i] = FALSE;
+        tid_pointer[i] = NULL;
+    }
+    //  end modified
+
+
     int argCount;
     char* debugArgs = "";
     bool randomYield = FALSE;
@@ -141,7 +156,7 @@ Initialize(int argc, char **argv)
     // We didn't explicitly allocate the current thread we are running in.
     // But if it ever tries to give up the CPU, we better have a Thread
     // object to save its state. 
-    currentThread = new Thread("main");		
+    currentThread = Thread::createThread("main");		
     currentThread->setStatus(RUNNING);
 
     interrupt->Enable();

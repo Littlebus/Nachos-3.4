@@ -50,6 +50,12 @@
 // For simplicity, this is just the max over all architectures.
 #define MachineStateSize 18 
 
+//  modified by Oscar
+#define MaxThread 128
+extern int nexttid();
+//  end modified
+
+
 
 // Size of the thread's private execution stack.
 // WATCH OUT IF THIS ISN'T BIG ENOUGH!!!!!
@@ -61,6 +67,7 @@ enum ThreadStatus { JUST_CREATED, RUNNING, READY, BLOCKED };
 
 // external function, dummy routine whose sole job is to call Thread::Print
 extern void ThreadPrint(int arg);	 
+
 
 // The following class defines a "thread control block" -- which
 // represents a single thread of execution.
@@ -82,7 +89,7 @@ class Thread {
     int machineState[MachineStateSize];  // all registers except for stackTop
 
   public:
-    Thread(char* debugName);		// initialize a Thread 
+    static Thread* createThread(char* debugName);
     ~Thread(); 				// deallocate a Thread
 					// NOTE -- thread being deleted
 					// must not be running when delete 
@@ -103,9 +110,13 @@ class Thread {
     char* getName() { return (name); }
     void Print() { printf("%s, ", name); }
 
+    //  modified by Oscar
+    int getTid();
+    int getUid();
+    //  end modified
   private:
     // some of the private data for this class is listed above
-    
+    Thread(char* debugName);        // initialize a Thread 
     int* stack; 	 		// Bottom of the stack 
 					// NULL if this is the main thread
 					// (If NULL, don't deallocate stack)
@@ -116,6 +127,14 @@ class Thread {
     					// Allocate a stack for thread.
 					// Used internally by Fork()
 
+    //  modified by Oscar
+    
+
+    short tid;
+                    //process id
+    short uid;
+                    //user id
+    //  end modified
 #ifdef USER_PROGRAM
 // A thread running a user program actually has *two* sets of CPU registers -- 
 // one for its state while executing user code, one for its state 
