@@ -1,0 +1,26 @@
+class scheduler
+
+	Scheduler();			// 初始化线程就绪队列 
+		new
+    ~Scheduler();			// 释放就绪队列
+    	delete
+
+    void ReadyToRun(Thread* thread);	// 将线程加入就绪队列
+    	设置状态为READY
+    	在readyList后添加该thread
+
+    Thread* FindNextToRun();		// 拿出队首线程
+    	返回readyList->remove()
+
+    void Run(Thread* nextThread);	// 让nextThread运行
+    	检查是否是用户程序
+    	如果是就保存用户CPU寄存器
+    	检查oldThread栈溢出
+    	设置新thread为currentthread并且设置为Running
+    	调用SWITCH切换线程
+    	
+
+    void Print();			// 打印就绪队列信息
+    
+private:
+    List *readyList;  		// 就绪队列

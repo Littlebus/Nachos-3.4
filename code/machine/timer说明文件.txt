@@ -1,0 +1,26 @@
+timer.h
+class Timer
+	public:
+    Timer(VoidFunctionPtr timerHandler, int callArg, bool doRandom);	// 初始化timer, 每个时间片调用中断处理程序timeHandler
+    ~Timer() {}
+
+// Internal routines to the timer emulation -- DO NOT call these
+
+    void TimerExpired();	// 每当硬件计时器产生一个中断就被内部调用
+
+    int TimeOfNextInterrupt();  // 计算何时产生下个中断
+
+  private:
+    bool randomize;		// 是否使用随机超时时间
+    VoidFunctionPtr handler;	// 中断处理程序
+    int arg;			// 传给中断处理程序的参数
+
+
+timer.cc
+	TimeHandler，调用对应timer的TimeExpired()
+	Time构造函数初始化timer
+		interrupt->Schedule安排第一个中断
+		timeHandler是处理程序，每当时间到了就关中断调用。
+		doRandom如果是true就随机中断
+	TimeExpired，设置下次时钟中断，执行handler
+	TimeOfNextInterrupt计算下次时钟中断间隔，随机或者固定

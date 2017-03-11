@@ -79,7 +79,7 @@ Thread::getUid()
 // Thread::createThread
 //  create new thread
 //
-//  NOTE: cannot create new thread by createThread() for we need to
+//  NOTE: cannot create new thread by Thread() for we need to
 //  check max threads.
 //----------------------------------------------------------------------
 

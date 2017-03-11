@@ -1,0 +1,27 @@
+为每个结构定义了两个程序
+
+ThreadRoot(InitialPC, InitialArg, WhenDonePC, StartupPC)
+	InitialPC - 线程运行程序的地址
+	InitialArg - 一个参数
+	WhenDonePC - 回调函数，在线程return时调用
+	StartupPC - 线程开始回调，设置PC
+
+SWITCH(oldThread, newThread)
+	oldThread - 当前运行线程，将要保存其CPU寄存器
+	newThread - 将要运行线程，将要读取其CPU寄存器
+
+汇编代码:
+
+ThreadRoot
+	切换栈帧
+	push传入参数
+	设置PC
+	运行程序
+	回调结束
+	恢复栈帧
+
+SWITCH:
+	push eax，把eax当成指向t1的指针使用
+	保存t1寄存器，保存栈指针，把返回地址放入PC（返回的时候可以从调用的地方恢复）
+	同理把t2的寄存器load出来
+

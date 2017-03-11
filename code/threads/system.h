@@ -17,7 +17,6 @@
 #include "timer.h"
 
 //	modified by Oscar
-extern int currentTid;
 extern bool tidList[MaxThread];
 extern Thread* tid_pointer[MaxThread];
 //	end modified

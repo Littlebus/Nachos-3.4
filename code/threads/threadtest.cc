@@ -91,6 +91,7 @@ ThreadTest()
             if(t)
             t->Fork(SimpleThread, 1);
     }
+    TS();
 	printf("No test specified.\n");
 	break;
     }
