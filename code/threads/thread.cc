@@ -74,6 +74,21 @@ Thread::getUid()
 {
     return this->uid;
 }
+// modified lab2
+int
+Thread::getPriority()
+{
+    return this->priority;
+}
+void
+Thread::setPriority(int arg)
+{
+    arg = arg > 10 ? 10 : arg;
+    arg = arg < 0 ? 0 : arg;
+    this->priority = arg;
+}
+// end modified
+
 
 //----------------------------------------------------------------------
 // Thread::createThread
@@ -94,6 +109,9 @@ Thread::createThread(char* threadName)
     else
     {
         Thread* t = new Thread(threadName);
+        // modified lab2
+        t->setPriority(5);
+        // end modified
         printf("create thread no.%d %s successfully!\n", t->getTid(),threadName);
         return t;
     }
@@ -178,6 +196,8 @@ Thread::Fork(VoidFunctionPtr func, int arg)
     scheduler->ReadyToRun(this);	// ReadyToRun assumes that interrupts 
 					// are disabled!
     (void) interrupt->SetLevel(oldLevel);
+    // modified lab2
+    // end modified
 }    
 
 //----------------------------------------------------------------------
@@ -264,10 +284,25 @@ Thread::Yield ()
     DEBUG('t', "Yielding thread \"%s\"\n", getName());
     
     nextThread = scheduler->FindNextToRun();
-    if (nextThread != NULL) {
+    // modified lab2
+    if (nextThread != NULL)
+    {
+        if(nextThread->getPriority() >= currentThread->getPriority())
+        {
+            scheduler->ReadyToRun(this);
+            scheduler->Run(nextThread);
+        }
+        else
+        {
+            scheduler->ReadyToRun(nextThread);
+        }
+    }
+    // end modified
+/*    if (nextThread != NULL) {
 	scheduler->ReadyToRun(this);
 	scheduler->Run(nextThread);
     }
+*/
     (void) interrupt->SetLevel(oldLevel);
 }
 

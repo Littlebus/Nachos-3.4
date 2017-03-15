@@ -20,6 +20,11 @@
 extern bool tidList[MaxThread];
 extern Thread* tid_pointer[MaxThread];
 //	end modified
+// modified lab2
+#define MAX_PRIORITY 10
+// end modified
+
+
 
 // Initialization and cleanup routines
 extern void Initialize(int argc, char **argv); 	// Initialization,

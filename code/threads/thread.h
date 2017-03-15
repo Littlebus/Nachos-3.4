@@ -114,6 +114,10 @@ class Thread {
     int getTid();
     int getUid();
     //  end modified
+    // modified lab2
+    int getPriority();
+    void setPriority(int);
+    // end modified
   private:
     // some of the private data for this class is listed above
     Thread(char* debugName);        // initialize a Thread 
@@ -135,6 +139,11 @@ class Thread {
     short uid;
                     //user id
     //  end modified
+    // modified lab2
+    int priority;
+    // end modified
+
+
 #ifdef USER_PROGRAM
 // A thread running a user program actually has *two* sets of CPU registers -- 
 // one for its state while executing user code, one for its state 

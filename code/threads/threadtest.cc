@@ -34,9 +34,10 @@ SimpleThread(int which)
     int num;
     
     for (num = 0; num < 5; num++) {
-	printf("*** thread %d looped %d times\n", currentThread->getTid(), num);
-        currentThread->Yield();
+	   printf("*** thread %d looped %d times\n", currentThread->getTid(), num);
+       currentThread->Yield();
     }
+
 }
 
 //----------------------------------------------------------------------
@@ -89,7 +90,13 @@ ThreadTest()
     {
             Thread *t = Thread::createThread("forked thread");
             if(t)
-            t->Fork(SimpleThread, 1);
+            {
+                
+                t->setPriority(((i*100)/20+99)%11);
+                printf("thread %d has priority of %d \n",t->getTid(),t->getPriority() );
+                t->Fork(SimpleThread, 1);
+            }
+            
     }
     TS();
 	printf("No test specified.\n");

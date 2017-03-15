@@ -87,8 +87,8 @@ main(int argc, char **argv)
 					// for a particular command
 
     DEBUG('t', "Entering main");
+
     (void) Initialize(argc, argv);
-    
 #ifdef THREADS
     for (argc--, argv++; argc > 0; argc -= argCount, argv += argCount) {
       argCount = 1;
@@ -171,6 +171,8 @@ main(int argc, char **argv)
         }
 #endif // NETWORK
     }
+printf("hello\n");
+    
     ThreadTest();
     currentThread->Finish();	// NOTE: if the procedure "main" 
 				// returns, then the program "nachos"
