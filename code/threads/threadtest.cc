@@ -33,11 +33,14 @@ SimpleThread(int which)
 {
     int num;
     
-    for (num = 0; num < 5; num++) {
+    for (num = 0; num < 4; num++) {
 	   printf("*** thread %d looped %d times\n", currentThread->getTid(), num);
-       currentThread->Yield();
+       for (int i = 0; i < 10; ++i)
+       {
+           interrupt->OneTick();
+       }
+       
     }
-
 }
 
 //----------------------------------------------------------------------
@@ -91,9 +94,10 @@ ThreadTest()
             Thread *t = Thread::createThread("forked thread");
             if(t)
             {
-                
+                #ifdef PRIORITY
                 t->setPriority(((i*100)/20+99)%11);
                 printf("thread %d has priority of %d \n",t->getTid(),t->getPriority() );
+                #endif
                 t->Fork(SimpleThread, 1);
             }
             

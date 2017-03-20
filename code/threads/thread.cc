@@ -87,6 +87,17 @@ Thread::setPriority(int arg)
     arg = arg < 0 ? 0 : arg;
     this->priority = arg;
 }
+int
+Thread::getSlice()
+{
+    return this->slice;
+}
+
+void
+Thread::setSlice(int arg)
+{
+    this->slice = arg;
+}
 // end modified
 
 
@@ -109,6 +120,7 @@ Thread::createThread(char* threadName)
     else
     {
         Thread* t = new Thread(threadName);
+        t->setSlice(DEFAULT_SLICE);
         // modified lab2
         t->setPriority(5);
         // end modified
@@ -285,6 +297,7 @@ Thread::Yield ()
     
     nextThread = scheduler->FindNextToRun();
     // modified lab2
+    #ifdef PRIORITY
     if (nextThread != NULL)
     {
         if(nextThread->getPriority() >= currentThread->getPriority())
@@ -297,6 +310,14 @@ Thread::Yield ()
             scheduler->ReadyToRun(nextThread);
         }
     }
+    #endif
+    #ifdef SLICE
+    if (nextThread != NULL)
+    {
+            scheduler->ReadyToRun(this);
+            scheduler->Run(nextThread);
+    }
+    #endif
     // end modified
 /*    if (nextThread != NULL) {
 	scheduler->ReadyToRun(this);

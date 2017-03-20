@@ -66,8 +66,18 @@ extern void Cleanup();
 static void
 TimerInterruptHandler(int dummy)
 {
-    if (interrupt->getStatus() != IdleMode)
-	interrupt->YieldOnReturn();
+    #ifdef SLICE
+    // printf("current slice %d\n",currentThread->getSlice());
+    currentThread->setSlice(currentThread->getSlice() - EXPIRE_SLICE);
+    #endif
+    if (/*interrupt->getStatus() != IdleMode || */currentThread->getSlice() <= 0)
+    {
+        // printf("slice < 0 invoke YieldOnReturn\n %d ",currentThread->getSlice());
+        interrupt->YieldOnReturn();
+        if(currentThread->getSlice() <= 0)
+            currentThread->setSlice(DEFAULT_SLICE);
+    }
+	
 }
 
 //----------------------------------------------------------------------
@@ -148,7 +158,7 @@ Initialize(int argc, char **argv)
     stats = new Statistics();			// collect statistics
     interrupt = new Interrupt;			// start up interrupt handling
     scheduler = new Scheduler();		// initialize the ready queue
-    if (randomYield)				// start the timer (if needed)
+    // if (randomYield)				// start the timer (if needed)
 	timer = new Timer(TimerInterruptHandler, 0, randomYield);
 
     threadToBeDestroyed = NULL;
@@ -159,7 +169,7 @@ Initialize(int argc, char **argv)
    
     currentThread = Thread::createThread("main");	
     	
-    currentThread->setPriority(10);
+    // currentThread->setPriority(10);
 
     currentThread->setStatus(RUNNING);
 

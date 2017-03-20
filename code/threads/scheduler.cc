@@ -57,10 +57,14 @@ Scheduler::ReadyToRun (Thread *thread)
 
     thread->setStatus(READY);
     // modified lab2
+    #ifdef PRIORITY
+    // printf("PRIORITY\n");
     readyList->SortedInsert((void *)thread, MAX_PRIORITY - thread->getPriority());
+    #endif
     // end modified
-    
-    // readyList->Append((void *)thread);
+    #ifdef SLICE
+    readyList->Append((void *)thread);
+    #endif
 }
 
 //----------------------------------------------------------------------

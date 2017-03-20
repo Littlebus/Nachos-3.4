@@ -5,7 +5,6 @@
 //      This means it can be used for implementing time-slicing.
 //
 //      We emulate a hardware timer by scheduling an interrupt to occur
-//      every time stats->totalTicks has increased by TimerTicks.
 //
 //      In order to introduce some randomness into time-slicing, if "doRandom"
 //      is set, then the interrupt is comes after a random number of ticks.
@@ -25,7 +24,9 @@
 
 // dummy function because C++ does not allow pointers to member functions
 static void TimerHandler(int arg)
-{ Timer *p = (Timer *)arg; p->TimerExpired(); }
+{ 
+    Timer *p = (Timer *)arg; p->TimerExpired(); 
+}
 
 //----------------------------------------------------------------------
 // Timer::Timer

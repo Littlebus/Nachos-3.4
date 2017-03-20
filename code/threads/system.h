@@ -21,7 +21,10 @@ extern bool tidList[MaxThread];
 extern Thread* tid_pointer[MaxThread];
 //	end modified
 // modified lab2
+#define SLICE
 #define MAX_PRIORITY 10
+#define DEFAULT_SLICE 20
+#define EXPIRE_SLICE 10
 // end modified
 
 

@@ -117,6 +117,8 @@ class Thread {
     // modified lab2
     int getPriority();
     void setPriority(int);
+    int getSlice();
+    void setSlice(int);
     // end modified
   private:
     // some of the private data for this class is listed above
@@ -141,6 +143,7 @@ class Thread {
     //  end modified
     // modified lab2
     int priority;
+    int slice;//时间片数
     // end modified
 
 
