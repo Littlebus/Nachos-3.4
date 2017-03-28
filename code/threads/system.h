@@ -15,16 +15,22 @@
 #include "interrupt.h"
 #include "stats.h"
 #include "timer.h"
-
+#include "synch.h"
+#include "synchlist.h"
 //	modified by Oscar
 extern bool tidList[MaxThread];
 extern Thread* tid_pointer[MaxThread];
+extern void ticks();
 //	end modified
 // modified lab2
 #define SLICE
 #define MAX_PRIORITY 10
 #define DEFAULT_SLICE 20
 #define EXPIRE_SLICE 10
+// #define SYNCHRONOUS
+// #define CONDITION
+// #define BARRIER
+#define RWLOCK
 // end modified
 
 

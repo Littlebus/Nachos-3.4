@@ -56,7 +56,10 @@
 #ifdef THREADS
 extern int testnum;
 #endif
-
+Semaphore *have,*rest,*mutex;
+SynchList *item_list;
+Barrier *barrier;
+RWLock *buffer;
 // External functions used by this file
 
 extern void ThreadTest(void), Copy(char *unixFile, char *nachosFile);
@@ -65,7 +68,11 @@ extern void StartProcess(char *file), ConsoleTest(char *in, char *out);
 extern void MailTest(int networkID);
 extern void SimpleThread(int which);
 extern void ThreadTest1();
+
+// extern void consumer();
+// extern void producer();
 extern void TS();
+
 //----------------------------------------------------------------------
 // main
 // 	Bootstrap the operating system kernel.  
@@ -171,8 +178,8 @@ main(int argc, char **argv)
         }
 #endif // NETWORK
     }
-printf("hello\n");
-    
+// printf("hello\n");
+
     ThreadTest();
     currentThread->Finish();	// NOTE: if the procedure "main" 
 				// returns, then the program "nachos"

@@ -100,13 +100,136 @@ Semaphore::V()
 // Dummy functions -- so we can compile our later assignments 
 // Note -- without a correct implementation of Condition::Wait(), 
 // the test case in the network assignment won't work!
-Lock::Lock(char* debugName) {}
-Lock::~Lock() {}
-void Lock::Acquire() {}
-void Lock::Release() {}
+Lock::Lock(char* debugName) 
+{
+    lock = new Semaphore(NULL, 1);
+}
+Lock::~Lock() 
+{
+    delete lock;
+}
+int
+Lock::getOwner()
+{
+    return this->held_tid;
+}
+bool
+Lock::isHeldByCurrentThread()
+{
+    return (currentThread->getTid() == held_tid);
+}
+void
+Lock::Acquire() 
+{
+    lock->P();
+    // printf("Acquire by %d\n", currentThread->getTid());
+    held_tid = currentThread->getTid();
+}
+void Lock::Release() 
+{
+    // printf("Release by %d and %d hold it\n", currentThread->getTid(), held_tid);
+    if (isHeldByCurrentThread())
+        lock->V();
+    else
+    printf("wrong lock realease at %s\n", currentThread->getName());
+}
 
-Condition::Condition(char* debugName) { }
-Condition::~Condition() { }
-void Condition::Wait(Lock* conditionLock) { ASSERT(FALSE); }
-void Condition::Signal(Lock* conditionLock) { }
-void Condition::Broadcast(Lock* conditionLock) { }
+Condition::Condition(){
+
+}
+Condition::Condition(char* debugName) 
+{
+    name = debugName;
+    queue = new List;
+}
+Condition::~Condition() 
+{
+    delete queue;
+}
+void Condition::Wait(Lock* conditionLock) 
+{ 
+    // ASSERT(FALSE);
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);   //interrupt off
+    conditionLock->Release();
+    queue->Append(currentThread);
+    currentThread->Sleep();
+    conditionLock->Acquire();
+    (void) interrupt->SetLevel(oldLevel);
+}
+void Condition::Signal(Lock* conditionLock) 
+{
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    Thread* thread = (Thread *)queue->Remove();
+    if (thread != NULL)
+        scheduler->ReadyToRun(thread);
+    (void) interrupt->SetLevel(oldLevel);
+}
+void Condition::Broadcast(Lock* conditionLock) 
+{
+    IntStatus oldLevel = interrupt->SetLevel(IntOff);
+    Thread* thread;
+    
+    while (thread = (Thread *)queue->Remove())
+    {
+        scheduler->ReadyToRun(thread);
+    }
+    (void) interrupt->SetLevel(oldLevel);
+}
+
+Barrier::Barrier(char* debugName, int wait) 
+{
+    name = debugName;
+    queue = new List;
+    lock = new Lock("barrier lock");
+    this->reach_number = this->barrier_number = wait;
+}
+void Barrier::barrier()
+{
+    
+    lock->Acquire();
+    reach_number--;
+    if(reach_number == 0)   //reach the barrier
+    {
+        this->reach_number = this->barrier_number;
+        Broadcast(lock);
+        lock->Release();
+        printf("%d break the barrier\n", currentThread->getTid());
+    }
+    else
+    {
+        printf("%d reach the barrier\n", currentThread->getTid());
+        Wait(lock);
+        lock->Release();
+    }
+}
+
+
+RWLock::RWLock(char* debugName)
+{
+    write_lock = new Semaphore("write_lock",1);
+    mutex = new Lock("mutex");
+    reader_number = 0;
+}
+void* 
+RWLock::read()
+{
+    mutex->Acquire();
+    reader_number++;
+    if(reader_number == 1)
+        write_lock->P();
+    mutex->Release();
+    printf("reader %d is doing something\n", currentThread->getTid());
+    mutex->Acquire();
+    reader_number--;
+    if(reader_number == 0)
+        write_lock->V();
+    mutex->Release();
+    return NULL;
+}
+void 
+RWLock::write(void* buffer)
+{
+    write_lock->P();
+    printf("writer %d is doing something\n", currentThread->getTid());
+    write_lock->V();
+}

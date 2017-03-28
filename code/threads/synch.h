@@ -71,7 +71,7 @@ class Lock {
 
     void Acquire(); // these are the only operations on a lock
     void Release(); // they are both *atomic*
-
+    int getOwner();
     bool isHeldByCurrentThread();	// true if the current thread
 					// holds this lock.  Useful for
 					// checking in Release, and in
@@ -79,6 +79,8 @@ class Lock {
 
   private:
     char* name;				// for debugging
+    int held_tid;
+    Semaphore* lock;
     // plus some other stuff you'll need to define
 };
 
@@ -116,6 +118,7 @@ class Lock {
 
 class Condition {
   public:
+    Condition();
     Condition(char* debugName);		// initialize condition to 
 					// "no one waiting"
     ~Condition();			// deallocate the condition
@@ -129,8 +132,32 @@ class Condition {
     void Broadcast(Lock *conditionLock);// the currentThread for all of 
 					// these operations
 
-  private:
+  protected:
     char* name;
+    List* queue;
     // plus some other stuff you'll need to define
+};
+
+class Barrier:public Condition{
+    
+public:
+    void barrier();
+    Barrier(char* debugName);
+    Barrier(char* debugName, int wait);
+private:
+    Lock* lock;
+    int barrier_number;
+    int reach_number;
+};
+
+class RWLock{
+public:
+    RWLock(char* debugName);
+    void* read();
+    void write(void*);
+private:
+    Semaphore* write_lock;
+    Lock* mutex;
+    int reader_number;
 };
 #endif // SYNCH_H

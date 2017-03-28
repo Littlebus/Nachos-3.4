@@ -14,7 +14,7 @@
 
 #include "copyright.h"
 #include "synchlist.h"
-
+#include "system.h"
 //----------------------------------------------------------------------
 // SynchList::SynchList
 //	Allocate and initialize the data structures needed for a 
@@ -53,7 +53,9 @@ SynchList::~SynchList()
 void
 SynchList::Append(void *item)
 {
+    // printf("line 56 acquire, owner is %d\n" ,lock->getOwner());
     lock->Acquire();		// enforce mutual exclusive access to the list 
+    // printf("SynchList::Append from %s\n", currentThread->getName() );
     list->Append(item);
     listEmpty->Signal(lock);	// wake up a waiter, if any
     lock->Release();
@@ -71,13 +73,15 @@ void *
 SynchList::Remove()
 {
     void *item;
-
     lock->Acquire();			// enforce mutual exclusion
+    // printf("line 77 acquire, owner is %d\n" ,lock->getOwner());
     while (list->IsEmpty())
 	listEmpty->Wait(lock);		// wait until list isn't empty
     item = list->Remove();
     ASSERT(item != NULL);
+    // printf("line 84 releas from %d\n", currentThread->getTid());
     lock->Release();
+    // printf("yoooooo\n");
     return item;
 }
 
