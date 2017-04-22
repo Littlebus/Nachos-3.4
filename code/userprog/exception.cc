@@ -24,7 +24,8 @@
 #include "copyright.h"
 #include "system.h"
 #include "syscall.h"
-
+// #define TLB_FIFO
+#define TLB_LRU
 //----------------------------------------------------------------------
 // ExceptionHandler
 // 	Entry point into the Nachos kernel.  Called when a user program
@@ -56,7 +57,64 @@ ExceptionHandler(ExceptionType which)
     if ((which == SyscallException) && (type == SC_Halt)) {
 	DEBUG('a', "Shutdown, initiated by user program.\n");
    	interrupt->Halt();
-    } else {
+    }
+    else if(which == PageFaultException)
+    {
+    	if(machine->tlb != NULL){
+    		int vpn = (unsigned) machine->registers[BadVAddrReg] / PageSize;
+    		int position = -1;
+    		for (int i = 0; i < TLBSize; ++i)
+    		{
+    			if(machine->tlb[i].valid == FALSE)
+    			{
+    				position = i;
+    				break;
+    			}
+    		}
+    		#ifdef TLB_FIFO
+    		// printf("haha\n");
+    		if(position == -1)
+    		{
+    			position = TLBSize-1;
+    			for (int i = 0; i < TLBSize - 1 ; ++i)
+    			{
+    				machine->tlb[i] = machine->tlb[i+1];
+    			}
+    		}
+    		#endif
+    		#ifdef TLB_LRU
+    		if(position == -1)
+    		{
+    			for (int i = 0; i < TLBSize; ++i)
+    			{
+    				if(machine->LRU_queue[i] == TLBSize)
+    				{
+    					position = i;
+    					break;
+    				}
+    			}
+    		}
+    		#endif
+    		machine->LRU_queue[position] = 1;
+    		for (int i = 0; i < TLBSize; ++i)
+    		{
+    			if(i==position) continue;
+    			if(machine->LRU_queue[i] == -1) continue;
+    			machine->LRU_queue[i]++;
+    		}
+
+    		machine->tlb[position].valid = true;
+    		machine->tlb[position].virtualPage = vpn;
+    		machine->tlb[position].physicalPage = machine->pageTable[vpn].physicalPage;
+    		machine->tlb[position].use = FALSE;
+    		machine->tlb[position].dirty = FALSE;
+    		machine->tlb[position].readOnly = FALSE;
+    	}
+    	else{
+    		ASSERT(FALSE);
+    	}
+    } 
+    else {
 	printf("Unexpected user mode exception %d %d\n", which, type);
 	ASSERT(FALSE);
     }

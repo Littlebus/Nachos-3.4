@@ -37,6 +37,8 @@ CFLAGS = -G 0 -c $(INCDIR)
 
 all: halt shell matmult sort
 
+clean: /bin/csh -c "rm *.coff *.o"
+
 start.o: start.s ../userprog/syscall.h
 	$(CPP) $(CPPFLAGS) start.c > strt.s
 	$(AS) $(ASFLAGS) -o start.o strt.s
@@ -59,6 +61,12 @@ sort.o: sort.c
 sort: sort.o start.o
 	$(LD) $(LDFLAGS) start.o sort.o -o sort.coff
 	../bin/coff2noff sort.coff sort
+
+test.o: test.c
+	$(CC) $(CFLAGS) -c test.c
+test: test.o start.o
+	$(LD) $(LDFLAGS) start.o test.o -o test.coff
+	../bin/coff2noff test.coff test
 
 matmult.o: matmult.c
 	$(CC) $(CFLAGS) -c matmult.c

@@ -240,6 +240,8 @@ Interrupt::Idle()
 void
 Interrupt::Halt()
 {
+    float hitrate =((float)hit)/((float)(hit+miss));
+    printf("hit time: %d, miss time: %d, hit rate:%f, missrate:%f\n",hit,miss,hitrate,1-hitrate );
     printf("Machine halting!\n\n");
     stats->Print();
     Cleanup();     // Never returns.

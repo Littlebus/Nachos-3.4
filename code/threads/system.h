@@ -33,7 +33,7 @@ extern void ticks();
 #define RWLOCK
 // end modified
 
-
+extern int hit,miss;
 
 // Initialization and cleanup routines
 extern void Initialize(int argc, char **argv); 	// Initialization,

@@ -32,7 +32,7 @@
 					// the disk sector size, for
 					// simplicity
 
-#define NumPhysPages    32
+#define NumPhysPages    1024
 #define MemorySize 	(NumPhysPages * PageSize)
 #define TLBSize		4		// if there is a TLB, make it small
 
@@ -182,6 +182,7 @@ class Machine {
     TranslationEntry *pageTable;
     unsigned int pageTableSize;
 
+    int LRU_queue[TLBSize];
   private:
     bool singleStep;		// drop back into the debugger after each
 				// simulated instruction
