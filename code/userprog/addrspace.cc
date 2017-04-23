@@ -88,8 +88,11 @@ AddrSpace::AddrSpace(OpenFile *executable)
 // first, set up the translation 
     pageTable = new TranslationEntry[numPages];
     for (i = 0; i < numPages; i++) {
+
 	pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
-	pageTable[i].physicalPage = i;
+    pageTable[i].physicalPage = machine->find();
+    ASSERT(pageTable[i].physicalPage>=0)
+	// pageTable[i].physicalPage = i;
 	pageTable[i].valid = TRUE;
 	pageTable[i].use = FALSE;
 	pageTable[i].dirty = FALSE;
@@ -106,14 +109,26 @@ AddrSpace::AddrSpace(OpenFile *executable)
     if (noffH.code.size > 0) {
         DEBUG('a', "Initializing code segment, at 0x%x, size %d\n", 
 			noffH.code.virtualAddr, noffH.code.size);
-        executable->ReadAt(&(machine->mainMemory[noffH.code.virtualAddr]),
-			noffH.code.size, noffH.code.inFileAddr);
+        int pos = noffH.code.inFileAddr;
+        for (int j = 0; j < noffH.code.size; ++j)
+        {
+            int current_vpn = (noffH.code.virtualAddr + j) / PageSize;
+            int current_offset = (noffH.code.virtualAddr + j) % PageSize;
+            int paddr = pageTable[current_vpn].physicalPage * PageSize + current_offset;
+            executable->ReadAt(&(machine->mainMemory[paddr]),1,pos++);
+        }
     }
     if (noffH.initData.size > 0) {
         DEBUG('a', "Initializing data segment, at 0x%x, size %d\n", 
 			noffH.initData.virtualAddr, noffH.initData.size);
-        executable->ReadAt(&(machine->mainMemory[noffH.initData.virtualAddr]),
-			noffH.initData.size, noffH.initData.inFileAddr);
+        int pos = noffH.initData.inFileAddr;
+        for (int j = 0; j < noffH.initData.size; ++j)
+        {
+            int current_vpn = (noffH.initData.virtualAddr + j) / PageSize;
+            int current_offset = (noffH.initData.virtualAddr + j) % PageSize;
+            int paddr = pageTable[current_vpn].physicalPage * PageSize + current_offset;
+            executable->ReadAt(&(machine->mainMemory[paddr]),1,pos++);
+        }
     }
 
 }
@@ -169,7 +184,12 @@ AddrSpace::InitRegisters()
 //----------------------------------------------------------------------
 
 void AddrSpace::SaveState() 
-{}
+{
+    for (int i = 0; i < TLBSize; ++i)
+    {
+        machine->tlb[i].valid = FALSE;
+    }
+}
 
 //----------------------------------------------------------------------
 // AddrSpace::RestoreState

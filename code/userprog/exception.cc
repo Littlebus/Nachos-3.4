@@ -58,6 +58,13 @@ ExceptionHandler(ExceptionType which)
 	DEBUG('a', "Shutdown, initiated by user program.\n");
    	interrupt->Halt();
     }
+    else if((which == SyscallException) && (type == SC_Exit)){
+    DEBUG('a', "program exit.\n");
+    machine->clear();
+    int NextPC = machine->ReadRegister(NextPCReg);
+    machine->WriteRegister(PCReg, NextPC);
+    currentThread->Finish();
+    }
     else if(which == PageFaultException)
     {
     	if(machine->tlb != NULL){

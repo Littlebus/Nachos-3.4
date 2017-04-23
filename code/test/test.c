@@ -16,17 +16,7 @@ int num[M][N];	/* size of physical memory; with code, we'll run out of space!*/
 int
 main()
 {
-    int i, j, tmp;
-
-    /* first initialize the array, in reverse sorted order */
-    /* then sort! */
-	for (i = 0; i < N; ++i)
-	{
-		for (j = 0; j < M; ++j)
-		{
-			num[j][i] = 0;
-		}
-	}
-    Halt();
+	Halt();
+	// Exit(0);
     // Exit(A[0]);		/* and then we're done -- should be 0! */
 }

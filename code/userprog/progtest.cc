@@ -19,25 +19,47 @@
 // 	Run a user program.  Open the executable, load it into
 //	memory, and jump to it.
 //----------------------------------------------------------------------
+void ForkThread(int arg)
+{
+    printf("start second thread\n");
+    machine->Run();
+}
 
 void
 StartProcess(char *filename)
 {
+
+
+
+
     OpenFile *executable = fileSystem->Open(filename);
     AddrSpace *space;
+    OpenFile *executable2 = fileSystem->Open(filename);
+    AddrSpace *space2;
+
+    Thread *thread = Thread::createThread("second_thread");
 
     if (executable == NULL) {
 	printf("Unable to open file %s\n", filename);
 	return;
     }
-    space = new AddrSpace(executable);    
+    printf("initiate first thread address space\n");
+    space = new AddrSpace(executable); 
+    printf("initiate second thread address space\n"); 
+    space2 = new AddrSpace(executable2);
+    
+
     currentThread->space = space;
-
+    space2->InitRegisters();
+    space2->RestoreState();
+    thread->space = space2;
+    thread->Fork(ForkThread,1);
+    currentThread->Yield();
     delete executable;			// close file
-
+    delete executable2;
     space->InitRegisters();		// set the initial register values
     space->RestoreState();		// load page table register
-
+    printf("start first thread\n");
     machine->Run();			// jump to the user progam
     ASSERT(FALSE);			// machine->Run never returns;
 					// the address space exits

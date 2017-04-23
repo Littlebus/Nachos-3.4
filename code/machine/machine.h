@@ -32,7 +32,7 @@
 					// the disk sector size, for
 					// simplicity
 
-#define NumPhysPages    1024
+#define NumPhysPages    32768
 #define MemorySize 	(NumPhysPages * PageSize)
 #define TLBSize		4		// if there is a TLB, make it small
 
@@ -145,7 +145,8 @@ class Machine {
 
     void Debugger();		// invoke the user program debugger
     void DumpState();		// print the user CPU and memory state 
-
+    int find();//find and allocate
+    void clear();
 
 // Data structures -- all of these are accessible to Nachos kernel code.
 // "public" for convenience.
@@ -183,6 +184,8 @@ class Machine {
     unsigned int pageTableSize;
 
     int LRU_queue[TLBSize];
+
+    bool bitmap[NumPhysPages];
   private:
     bool singleStep;		// drop back into the debugger after each
 				// simulated instruction

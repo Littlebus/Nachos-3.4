@@ -215,4 +215,28 @@ void Machine::WriteRegister(int num, int value)
 	// DEBUG('m', "WriteRegister %d, value %d\n", num, value);
 	registers[num] = value;
     }
-
+int
+Machine::find()
+{
+    for (int i = 0; i < NumPhysPages; ++i)
+    {
+        if(bitmap[i] == 0){
+            bitmap[i] = 1;
+            printf("allocate memory %d\n", i);
+            return i;
+        }
+    }
+    return -1;
+}
+void
+Machine::clear()
+{
+    for (int i = 0; i < pageTableSize; ++i)
+    {
+        int current = pageTable[i].physicalPage;
+        if(bitmap[current] == 1){
+            printf("deallocate memory %d\n", current);
+            bitmap[current] = 0;
+        }
+    }
+}
