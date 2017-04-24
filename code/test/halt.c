@@ -16,6 +16,6 @@ int
 main()
 {
 	// Exit(0);
-    Halt();
+    // Halt();
     /* not reached */
 }

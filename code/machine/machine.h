@@ -12,7 +12,7 @@
 //	by the simulator.  Each memory reference is translated, checked
 //	for errors, etc.
 //
-//  DO NOT CHANGE -- part of the machine emulation
+//  DO NOT CHANGE -- part of the machine emulation 
 //
 // Copyright (c) 1992-1993 The Regents of the University of California.
 // All rights reserved.  See copyright.h for copyright notice and limitation 

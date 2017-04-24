@@ -32,6 +32,7 @@ extern void ticks();
 // #define BARRIER
 #define RWLOCK
 // end modified
+#define LAZY_LOADING
 
 extern int hit,miss;
 

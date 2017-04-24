@@ -67,8 +67,9 @@ ExceptionHandler(ExceptionType which)
     }
     else if(which == PageFaultException)
     {
-    	if(machine->tlb != NULL){
-    		int vpn = (unsigned) machine->registers[BadVAddrReg] / PageSize;
+        int vpn = (unsigned) machine->registers[BadVAddrReg] / PageSize;
+    	if(machine->tlb != NULL && machine->pageTable[vpn].valid){
+    		// int vpn = (unsigned) machine->registers[BadVAddrReg] / PageSize;
     		int position = -1;
     		for (int i = 0; i < TLBSize; ++i)
     		{
@@ -118,7 +119,33 @@ ExceptionHandler(ExceptionType which)
     		machine->tlb[position].readOnly = FALSE;
     	}
     	else{
-    		ASSERT(FALSE);
+            OpenFile *openfile = fileSystem->Open("virtual_memory");
+            if(openfile == NULL)    ASSERT(FALSE);
+            // int vpn = machine->registers[BadVAddrReg] / PageSize;
+            int pos = machine->find();
+            printf("PageFaultException\n");
+            if(pos == -1){
+                pos = 0;
+                for (int i = 0; i < machine->pageTableSize; ++i)
+                {
+                    if (machine->pageTable[i].physicalPage == 0){
+                        if (machine->pageTable[i].dirty == TRUE)
+                        {
+                            openfile->WriteAt(&(machine->mainMemory[pos*PageSize]), PageSize, machine->pageTable[i].virtualPage*PageSize);
+                            machine->pageTable[i].valid = FALSE;
+                            break;
+                        }
+                    }
+                    ASSERT(FALSE);
+                }
+            }
+            openfile->ReadAt(&(machine->mainMemory[pos*PageSize]), PageSize, vpn*PageSize);
+            machine->pageTable[vpn].valid = TRUE;
+            machine->pageTable[vpn].physicalPage = pos;
+            machine->pageTable[vpn].use = FALSE;
+            machine->pageTable[vpn].dirty = FALSE;
+            machine->pageTable[vpn].readOnly = FALSE;
+            delete openfile;
     	}
     } 
     else {

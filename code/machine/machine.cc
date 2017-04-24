@@ -62,6 +62,7 @@ Machine::Machine(bool debug)
     for (i = 0; i < MemorySize; i++)
       	mainMemory[i] = 0;
 #ifdef USE_TLB
+      printf("haha\n");
     tlb = new TranslationEntry[TLBSize];
     for (i = 0; i < TLBSize; i++)
     {

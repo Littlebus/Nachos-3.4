@@ -78,10 +78,12 @@ AddrSpace::AddrSpace(OpenFile *executable)
     numPages = divRoundUp(size, PageSize);
     size = numPages * PageSize;
 
-    ASSERT(numPages <= NumPhysPages);		// check we're not trying
+    // ASSERT(numPages <= NumPhysPages);		// check we're not trying
 						// to run anything too big --
 						// at least until we have
 						// virtual memory
+                        // well, now we have 
+                        // virtual memory :)
 
     DEBUG('a', "Initializing address space, num pages %d, size %d\n", 
 					numPages, size);
@@ -89,14 +91,14 @@ AddrSpace::AddrSpace(OpenFile *executable)
     pageTable = new TranslationEntry[numPages];
     for (i = 0; i < numPages; i++) {
 
-	pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
-    pageTable[i].physicalPage = machine->find();
-    ASSERT(pageTable[i].physicalPage>=0)
+	// pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
+    // pageTable[i].physicalPage = machine->find();
+    // ASSERT(pageTable[i].physicalPage >= 0)
 	// pageTable[i].physicalPage = i;
-	pageTable[i].valid = TRUE;
-	pageTable[i].use = FALSE;
-	pageTable[i].dirty = FALSE;
-	pageTable[i].readOnly = FALSE;  // if the code segment was entirely on 
+	pageTable[i].valid = FALSE;    // with lazy-loading
+	// pageTable[i].use = FALSE;
+	// pageTable[i].dirty = FALSE;
+	// pageTable[i].readOnly = FALSE;  // if the code segment was entirely on 
 					// a separate page, we could set its 
 					// pages to be read-only
     }
@@ -106,10 +108,40 @@ AddrSpace::AddrSpace(OpenFile *executable)
     bzero(machine->mainMemory, size);
 
 // then, copy in the code and data segments into memory
+    #ifdef LAZY_LOADING
+    //don't load any data into mainmemory
+    fileSystem->Create("virtual_memory", size);
+    OpenFile *openfile = fileSystem->Open("virtual_memory");
+    if (openfile == NULL)   ASSERT(FALSE);
+
+    if(noffH.code.size > 0){
+        int pos1 = noffH.code.inFileAddr;
+        int pos2 = noffH.code.virtualAddr;
+        char current_char;
+        for (int j = 0; j < noffH.code.size; ++j)
+        {
+            executable->ReadAt(&(current_char), 1, pos1++);
+            openfile->WriteAt(&(current_char), 1, pos2++);
+        }
+    }
+    if(noffH.initData.size < 0){
+        int pos1 = noffH.initData.inFileAddr;
+        int pos2 = noffH.initData.virtualAddr;
+        char current_char;
+        for (int j = 0; j < noffH.initData.size; ++j)
+        {
+            executable->ReadAt(&(current_char), 1, pos1++);
+            openfile->WriteAt(&(current_char), 1, pos2++);
+        }
+    }
+    delete openfile;
+    #else
+    //without lazy-loading
     if (noffH.code.size > 0) {
         DEBUG('a', "Initializing code segment, at 0x%x, size %d\n", 
 			noffH.code.virtualAddr, noffH.code.size);
         int pos = noffH.code.inFileAddr;
+        
         for (int j = 0; j < noffH.code.size; ++j)
         {
             int current_vpn = (noffH.code.virtualAddr + j) / PageSize;
@@ -131,6 +163,7 @@ AddrSpace::AddrSpace(OpenFile *executable)
         }
     }
 
+    #endif
 }
 
 //----------------------------------------------------------------------

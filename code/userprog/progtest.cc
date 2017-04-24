@@ -64,6 +64,7 @@ StartProcess(char *filename)
     ASSERT(FALSE);			// machine->Run never returns;
 					// the address space exits
 					// by doing the syscall "exit"
+
 }
 
 // Data structures needed for the console test.  Threads making
