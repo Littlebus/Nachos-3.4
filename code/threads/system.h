@@ -33,6 +33,7 @@ extern void ticks();
 #define RWLOCK
 // end modified
 #define LAZY_LOADING
+#define INVERTED_TABLE
 
 extern int hit,miss;
 

@@ -55,6 +55,7 @@ void CheckEndian()
 Machine::Machine(bool debug)
 {
     int i;
+    // inverted page table
 
     for (i = 0; i < NumTotalRegs; i++)
         registers[i] = 0;
@@ -75,8 +76,22 @@ Machine::Machine(bool debug)
     tlb = NULL;
     pageTable = NULL;
 #endif
-
+#ifdef INVERTED_TABLE
+    pageTableSize = NumPhysPages;
+    pageTable = new TranslationEntry[NumPhysPages];
+    for (int i = 0; i < NumPhysPages; ++i)
+    {
+        pageTable[i].virtualPage = i;
+        pageTable[i].physicalPage = i;
+        pageTable[i].valid = FALSE;
+        pageTable[i].use = FALSE;
+        pageTable[i].dirty = FALSE;
+        pageTable[i].readOnly = FALSE;
+        pageTable[i].threadID = -1;
+    }
+#endif
     singleStep = debug;
+
     CheckEndian();
 }
 
@@ -234,10 +249,30 @@ Machine::clear()
 {
     for (int i = 0; i < pageTableSize; ++i)
     {
+        #ifdef INVERTED_TABLE
+
+        if(pageTable[i].threadID == currentThread->getTid() && bitmap[i] == 1){
+            bitmap[i] = 0;
+            printf("deallocate memory %d, thread:%d\n", i, currentThread->getTid());
+        }
+        #else
         int current = pageTable[i].physicalPage;
         if(bitmap[current] == 1){
             printf("deallocate memory %d\n", current);
             bitmap[current] = 0;
         }
+        #endif
     }
+}
+TranslationEntry *
+Machine::findPage(int vpn)
+{
+    for (int i = 0; i < NumPhysPages; ++i)
+    {
+        if (pageTable[i].valid && pageTable[i].virtualPage==vpn && pageTable[i].threadID == currentThread->getTid())
+        {
+            return &pageTable[i];
+        }
+    }
+    return NULL;
 }

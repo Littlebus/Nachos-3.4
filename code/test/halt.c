@@ -15,7 +15,7 @@
 int
 main()
 {
-	// Exit(0);
+	Exit(0);
     // Halt();
     /* not reached */
 }

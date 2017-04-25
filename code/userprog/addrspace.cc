@@ -88,20 +88,7 @@ AddrSpace::AddrSpace(OpenFile *executable)
     DEBUG('a', "Initializing address space, num pages %d, size %d\n", 
 					numPages, size);
 // first, set up the translation 
-    pageTable = new TranslationEntry[numPages];
-    for (i = 0; i < numPages; i++) {
-
-	// pageTable[i].virtualPage = i;	// for now, virtual page # = phys page #
-    // pageTable[i].physicalPage = machine->find();
-    // ASSERT(pageTable[i].physicalPage >= 0)
-	// pageTable[i].physicalPage = i;
-	pageTable[i].valid = FALSE;    // with lazy-loading
-	// pageTable[i].use = FALSE;
-	// pageTable[i].dirty = FALSE;
-	// pageTable[i].readOnly = FALSE;  // if the code segment was entirely on 
-					// a separate page, we could set its 
-					// pages to be read-only
-    }
+    pageTable = new TranslationEntry[NumPhysPages];
     
 // zero out the entire address space, to zero the unitialized data segment 
 // and the stack segment
@@ -234,6 +221,6 @@ void AddrSpace::SaveState()
 
 void AddrSpace::RestoreState() 
 {
-    machine->pageTable = pageTable;
-    machine->pageTableSize = numPages;
+    // machine->pageTable = pageTable;
+    // machine->pageTableSize = numPages;
 }

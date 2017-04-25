@@ -24,8 +24,8 @@
 #include "copyright.h"
 #include "system.h"
 #include "syscall.h"
-// #define TLB_FIFO
-#define TLB_LRU
+#define TLB_FIFO
+// #define TLB_LRU
 //----------------------------------------------------------------------
 // ExceptionHandler
 // 	Entry point into the Nachos kernel.  Called when a user program
@@ -68,7 +68,8 @@ ExceptionHandler(ExceptionType which)
     else if(which == PageFaultException)
     {
         int vpn = (unsigned) machine->registers[BadVAddrReg] / PageSize;
-    	if(machine->tlb != NULL && machine->pageTable[vpn].valid){
+        TranslationEntry * page = machine->findPage(vpn);
+    	if(machine->tlb != NULL && page != NULL){
     		// int vpn = (unsigned) machine->registers[BadVAddrReg] / PageSize;
     		int position = -1;
     		for (int i = 0; i < TLBSize; ++i)
@@ -101,19 +102,19 @@ ExceptionHandler(ExceptionType which)
     					break;
     				}
     			}
-    		}
+    		}         
+            machine->LRU_queue[position] = 1;
+            for (int i = 0; i < TLBSize; ++i)
+            {
+                if(i==position) continue;
+                if(machine->LRU_queue[i] == -1) continue;
+                machine->LRU_queue[i]++;
+            }
     		#endif
-    		machine->LRU_queue[position] = 1;
-    		for (int i = 0; i < TLBSize; ++i)
-    		{
-    			if(i==position) continue;
-    			if(machine->LRU_queue[i] == -1) continue;
-    			machine->LRU_queue[i]++;
-    		}
 
     		machine->tlb[position].valid = true;
     		machine->tlb[position].virtualPage = vpn;
-    		machine->tlb[position].physicalPage = machine->pageTable[vpn].physicalPage;
+    		machine->tlb[position].physicalPage = page->physicalPage;
     		machine->tlb[position].use = FALSE;
     		machine->tlb[position].dirty = FALSE;
     		machine->tlb[position].readOnly = FALSE;
@@ -121,30 +122,37 @@ ExceptionHandler(ExceptionType which)
     	else{
             OpenFile *openfile = fileSystem->Open("virtual_memory");
             if(openfile == NULL)    ASSERT(FALSE);
-            // int vpn = machine->registers[BadVAddrReg] / PageSize;
             int pos = machine->find();
-            printf("PageFaultException\n");
             if(pos == -1){
                 pos = 0;
-                for (int i = 0; i < machine->pageTableSize; ++i)
+                //using inverted page table
+                if (machine->pageTable[0].dirty == TRUE)
                 {
-                    if (machine->pageTable[i].physicalPage == 0){
-                        if (machine->pageTable[i].dirty == TRUE)
-                        {
-                            openfile->WriteAt(&(machine->mainMemory[pos*PageSize]), PageSize, machine->pageTable[i].virtualPage*PageSize);
-                            machine->pageTable[i].valid = FALSE;
-                            break;
-                        }
-                    }
-                    ASSERT(FALSE);
+                    openfile->WriteAt(&(machine->mainMemory[0]), PageSize, machine->pageTable[0].virtualPage*PageSize);
+                    machine->pageTable[0].valid = FALSE;
                 }
+                
+
+                // for (int i = 0; i < machine->pageTableSize; ++i)
+                // {
+                //     if (machine->pageTable[i].physicalPage == 0){
+                //         if (machine->pageTable[i].dirty == TRUE)
+                //         {
+                //             openfile->WriteAt(&(machine->mainMemory[pos*PageSize]), PageSize, machine->pageTable[i].virtualPage*PageSize);
+                //             machine->pageTable[i].valid = FALSE;
+                //             break;
+                //         }
+                //     }
+                //     ASSERT(FALSE);
+                // }
             }
             openfile->ReadAt(&(machine->mainMemory[pos*PageSize]), PageSize, vpn*PageSize);
-            machine->pageTable[vpn].valid = TRUE;
-            machine->pageTable[vpn].physicalPage = pos;
-            machine->pageTable[vpn].use = FALSE;
-            machine->pageTable[vpn].dirty = FALSE;
-            machine->pageTable[vpn].readOnly = FALSE;
+            machine->pageTable[pos].threadID = currentThread->getTid();
+            machine->pageTable[pos].valid = TRUE;
+            machine->pageTable[pos].virtualPage = vpn;
+            machine->pageTable[pos].use = FALSE;
+            machine->pageTable[pos].dirty = FALSE;
+            machine->pageTable[pos].readOnly = FALSE;
             delete openfile;
     	}
     } 
